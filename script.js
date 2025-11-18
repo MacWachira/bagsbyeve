@@ -3,33 +3,54 @@ let cart = [];
 
 // Page Navigation
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize components
+    initSalePopup();
+    initNavigation();
+    initHeaderScroll();
+    initTestimonialSlider();
+    initScrollAnimations();
+    initCartFunctionality();
+    initNewsletterForm();
+    
+    // Show hero content with delay
+    setTimeout(() => {
+        document.querySelector('.hero-content').classList.add('active');
+    }, 300);
+});
+
+// Sale Popup Functionality
+function initSalePopup() {
     // Show sale popup after page loads
     setTimeout(() => {
         document.getElementById('sale-popup').classList.add('active');
-    }, 1000);
+    }, 1500);
     
     // Close popup functionality
     document.getElementById('close-popup').addEventListener('click', function() {
         document.getElementById('sale-popup').classList.remove('active');
     });
     
-    // Fix for "Shop Sale Item" button in popup
+    // Shop sale item button
     document.getElementById('shop-sale-item').addEventListener('click', function(e) {
         e.preventDefault();
         document.getElementById('sale-popup').classList.remove('active');
         showPage('sale');
     });
-    
-    // Navigation functionality
+}
+
+// Navigation Functionality
+function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-links a, .footer-links a, .logo, .floating-cart, .back-button, .category-card');
     const pages = document.querySelectorAll('.page');
     
     // Function to show a specific page
     function showPage(pageId) {
+        // Hide all pages
         pages.forEach(page => {
             page.classList.remove('active');
         });
         
+        // Show target page
         document.getElementById(pageId).classList.add('active');
         
         // Update active nav link
@@ -71,7 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
         showPage('cart');
     });
     
-    // Header scroll effect
+    // Make showPage function globally accessible
+    window.showPage = showPage;
+}
+
+// Header Scroll Effect
+function initHeaderScroll() {
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
         if (window.scrollY > 100) {
@@ -80,34 +106,60 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.remove('scrolled');
         }
     });
+}
 
-    // Testimonial slider
+// Testimonial Slider
+function initTestimonialSlider() {
     const testimonialTrack = document.querySelector('.testimonial-track');
     const testimonialDots = document.querySelectorAll('.testimonial-dot');
     let currentTestimonial = 0;
+    let autoSlideInterval;
     
-    testimonialDots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            const slideIndex = parseInt(this.getAttribute('data-slide'));
-            currentTestimonial = slideIndex;
-            
-            testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-            
-            testimonialDots.forEach(d => d.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-    
-    // Auto-advance testimonials
-    setInterval(() => {
-        currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+    function goToSlide(slideIndex) {
+        currentTestimonial = slideIndex;
         testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
         
         testimonialDots.forEach(d => d.classList.remove('active'));
         testimonialDots[currentTestimonial].classList.add('active');
-    }, 6000);
+    }
+    
+    testimonialDots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.getAttribute('data-slide'));
+            goToSlide(slideIndex);
+            resetAutoSlide();
+        });
+    });
+    
+    function nextSlide() {
+        currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+        goToSlide(currentTestimonial);
+    }
+    
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+    
+    // Start auto-slide
+    startAutoSlide();
+    
+    // Pause on hover
+    testimonialTrack.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+    });
+    
+    testimonialTrack.addEventListener('mouseleave', () => {
+        startAutoSlide();
+    });
+}
 
-    // Fade-in animation on scroll
+// Scroll Animations
+function initScrollAnimations() {
     const fadeElements = document.querySelectorAll('.fade-in');
     
     const appearOnScroll = new IntersectionObserver(function(entries) {
@@ -117,12 +169,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 appearOnScroll.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
+    }, { 
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
     
     fadeElements.forEach(element => {
         appearOnScroll.observe(element);
     });
+}
 
+// Cart Functionality
+function initCartFunctionality() {
     // Add to cart functionality
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
@@ -135,12 +193,15 @@ document.addEventListener('DOMContentLoaded', function() {
             addToCart(id, name, price, image);
             
             // Add animation effect
+            const originalHTML = button.innerHTML;
             button.innerHTML = '<i class="fas fa-check"></i> Added!';
             button.style.backgroundColor = '#4CAF50';
+            button.disabled = true;
             
             setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-shopping-bag"></i> Add to Cart';
+                button.innerHTML = originalHTML;
                 button.style.backgroundColor = '';
+                button.disabled = false;
             }, 2000);
         }
     });
@@ -151,7 +212,45 @@ document.addEventListener('DOMContentLoaded', function() {
         cart = JSON.parse(savedCart);
         updateCartCount();
     }
-});
+}
+
+// Newsletter Form
+function initNewsletterForm() {
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            
+            if (validateEmail(email)) {
+                // Simulate form submission
+                const submitBtn = this.querySelector('button');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+                    emailInput.value = '';
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                }, 1500);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    }
+}
+
+// Email validation
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
 // Function to add item to cart
 function addToCart(id, name, price, image) {
@@ -175,6 +274,9 @@ function addToCart(id, name, price, image) {
     
     // Save cart to localStorage
     localStorage.setItem('bagsByEveCart', JSON.stringify(cart));
+    
+    // Show floating cart animation
+    animateFloatingCart();
 }
 
 // Function to update cart count display
@@ -182,6 +284,13 @@ function updateCartCount() {
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     document.querySelectorAll('.cart-count, .cart-count-floating').forEach(element => {
         element.textContent = totalItems;
+        // Add animation when count changes
+        if (parseInt(element.textContent) > 0) {
+            element.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 300);
+        }
     });
 }
 
@@ -271,21 +380,27 @@ function updateCartDisplay() {
 
 // Function to remove item from cart
 function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCartCount();
-    updateCartDisplay();
-    localStorage.setItem('bagsByEveCart', JSON.stringify(cart));
+    // Add removal animation
+    const cartItem = document.querySelectorAll('.cart-item')[index];
+    cartItem.style.transform = 'translateX(100%)';
+    cartItem.style.opacity = '0';
+    
+    setTimeout(() => {
+        cart.splice(index, 1);
+        updateCartCount();
+        updateCartDisplay();
+        localStorage.setItem('bagsByEveCart', JSON.stringify(cart));
+    }, 300);
 }
 
-// Function to generate WhatsApp message with images
+// Function to generate WhatsApp message
 function generateWhatsAppMessage() {
     let message = "Hello BagsByEve! I'd like to purchase the following items:%0A%0A";
     
     cart.forEach(item => {
         message += `👜 ${item.name}%0A`;
         message += `📦 Quantity: ${item.quantity}%0A`;
-        message += `💰 Price: Ksh ${(item.price * item.quantity).toLocaleString()}%0A`;
-        message += `🖼️ Image: ${item.image}%0A%0A`;
+        message += `💰 Price: Ksh ${(item.price * item.quantity).toLocaleString()}%0A%0A`;
     });
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -295,19 +410,34 @@ function generateWhatsAppMessage() {
     return encodeURIComponent(message);
 }
 
-// Function to show page (needed for cart functionality)
-function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => {
-        page.classList.remove('active');
-    });
-    document.getElementById(pageId).classList.add('active');
-    
-    // Scroll to top when changing pages
-    window.scrollTo(0, 0);
-    
-    // If showing cart page, update cart display
-    if (pageId === 'cart') {
-        updateCartDisplay();
+// Floating cart animation
+function animateFloatingCart() {
+    const floatingCart = document.getElementById('floating-cart');
+    floatingCart.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        floatingCart.style.transform = 'scale(1)';
+    }, 300);
+}
+
+// Product image lazy loading
+function initLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
     }
 }
+
+// Initialize lazy loading
+initLazyLoading();
