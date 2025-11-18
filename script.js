@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSalePopup();
     initNavigation();
     initHeaderScroll();
+    initHeroSlider();
     initTestimonialSlider();
     initScrollAnimations();
     initCartFunctionality();
@@ -105,6 +106,59 @@ function initHeaderScroll() {
         } else {
             header.classList.remove('scrolled');
         }
+    });
+}
+
+// Hero Slider
+function initHeroSlider() {
+    const heroImages = document.querySelectorAll('.hero-image');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    let currentHeroSlide = 0;
+    let heroSlideInterval;
+    
+    function showHeroSlide(slideIndex) {
+        heroImages.forEach(img => img.classList.remove('active'));
+        heroDots.forEach(dot => dot.classList.remove('active'));
+        
+        heroImages[slideIndex].classList.add('active');
+        heroDots[slideIndex].classList.add('active');
+        currentHeroSlide = slideIndex;
+    }
+    
+    function nextHeroSlide() {
+        let nextSlide = (currentHeroSlide + 1) % heroImages.length;
+        showHeroSlide(nextSlide);
+    }
+    
+    function startHeroSlide() {
+        heroSlideInterval = setInterval(nextHeroSlide, 5000);
+    }
+    
+    function resetHeroSlide() {
+        clearInterval(heroSlideInterval);
+        startHeroSlide();
+    }
+    
+    // Add click events to hero dots
+    heroDots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.getAttribute('data-slide'));
+            showHeroSlide(slideIndex);
+            resetHeroSlide();
+        });
+    });
+    
+    // Start auto-slide
+    startHeroSlide();
+    
+    // Pause on hover
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mouseenter', () => {
+        clearInterval(heroSlideInterval);
+    });
+    
+    heroSection.addEventListener('mouseleave', () => {
+        startHeroSlide();
     });
 }
 
@@ -418,26 +472,3 @@ function animateFloatingCart() {
         floatingCart.style.transform = 'scale(1)';
     }, 300);
 }
-
-// Product image lazy loading
-function initLazyLoading() {
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-}
-
-// Initialize lazy loading
-initLazyLoading();
