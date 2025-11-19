@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAGS BY LOVE | Made for the Modern Woman</title>
+    <title>BAGS BY EVE | Made for the Modern Woman</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -31,14 +31,18 @@
             <div class="header-content">
                 <a href="#" class="logo" data-page="home">
                     <div class="logo-text">
-                        <span class="logo-main">BAGS BY LOVE</span>
+                        <span class="logo-main">BAGS BY EVE</span>
                         <span class="logo-tagline">MADE FOR THE MODERN WOMAN</span>
                     </div>
                 </a>
                 <div class="header-actions">
-                    <a href="#"><i class="fas fa-search"></i></a>
-                    <a href="#"><i class="fas fa-user"></i></a>
-                    <a href="#" id="cart-icon" data-page="cart">
+                    <a href="#" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="user-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" id="cart-icon" data-page="cart" class="cart-btn">
                         <i class="fas fa-shopping-bag"></i>
                         <span class="cart-count">0</span>
                     </a>
@@ -62,21 +66,53 @@
     <div id="home" class="page active">
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-background">
-                <video autoplay muted loop>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-with-a-handbag-walking-in-a-modern-building-39821-large.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content active">
-                <h1>Elegance Redefined</h1>
-                <p>Discover our exclusive collection of handcrafted bags designed for the modern woman</p>
+            <div class="hero-content">
+                <h1 class="hero-title">Elegance Redefined</h1>
+                <p class="hero-subtitle">Discover our exclusive collection of handcrafted bags designed for the modern woman</p>
                 <div class="btn-container">
                     <a href="https://wa.me/254711642342?text=Hi%20BagsByLove,%20I'm%20interested%20in%20your%20bags" class="btn btn-whatsapp" target="_blank">
                         <i class="fab fa-whatsapp"></i> Shop on WhatsApp
                     </a>
                     <a href="#" class="btn btn-outline" id="view-cart">View Cart</a>
+                </div>
+                
+                <div class="hero-images">
+                    <div class="hero-image-item">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Luxury Handbag">
+                        <div class="image-overlay">
+                            <span>Luxury Collection</span>
+                        </div>
+                    </div>
+                    <div class="hero-image-item">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Designer Bag">
+                        <div class="image-overlay">
+                            <span>Designer Series</span>
+                        </div>
+                    </div>
+                    <div class="hero-image-item">
+                        <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Evening Clutch">
+                        <div class="image-overlay">
+                            <span>Evening Collection</span>
+                        </div>
+                    </div>
+                    <div class="hero-image-item">
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Classic Tote">
+                        <div class="image-overlay">
+                            <span>Classic Totes</span>
+                        </div>
+                    </div>
+                    <div class="hero-image-item">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Trendy Bag">
+                        <div class="image-overlay">
+                            <span>Trendy Styles</span>
+                        </div>
+                    </div>
+                    <div class="hero-image-item">
+                        <img src="https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Weekender Bag">
+                        <div class="image-overlay">
+                            <span>Travel Collection</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -85,148 +121,24 @@
         <section class="sale-section">
             <div class="container">
                 <div class="section-title">
-                    <h2 style="color: white;">Special Sale</h2>
-                    <p style="color: rgba(255,255,255,0.8);">Limited time offers on selected items</p>
+                    <h2>Special Sale</h2>
+                    <p>Limited time offers on selected items</p>
                 </div>
                 <div class="collections">
-                    <div class="collection-card fade-in">
-                        <div class="sale-badge">30% OFF</div>
-                        <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="collection-info">
-                            <h3>Weekender Bag</h3>
-                            <p>Perfect for short trips and getaways.</p>
-                            <div class="price">
-                                <div>
-                                    <span class="original-price">Ksh 3,500</span>
-                                    <span class="sale-price">Ksh 2,500</span>
-                                </div>
-                                <button class="add-to-cart" data-id="13" data-name="Weekender Bag" data-price="2500" data-image="https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                    <i class="fas fa-shopping-bag"></i> Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="collection-card fade-in">
-                        <div class="sale-badge">25% OFF</div>
-                        <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="collection-info">
-                            <h3>Satchel Bag</h3>
-                            <p>Structured and professional for work settings.</p>
-                            <div class="price">
-                                <div>
-                                    <span class="original-price">Ksh 2,800</span>
-                                    <span class="sale-price">Ksh 1,900</span>
-                                </div>
-                                <button class="add-to-cart" data-id="14" data-name="Satchel Bag" data-price="1900" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                    <i class="fas fa-shopping-bag"></i> Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="collection-card fade-in">
-                        <div class="sale-badge">40% OFF</div>
-                        <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="collection-info">
-                            <h3>Bucket Bag</h3>
-                            <p>Trendy and spacious with a drawstring closure.</p>
-                            <div class="price">
-                                <div>
-                                    <span class="original-price">Ksh 2,400</span>
-                                    <span class="sale-price">Ksh 1,600</span>
-                                </div>
-                                <button class="add-to-cart" data-id="15" data-name="Bucket Bag" data-price="1600" data-image="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                    <i class="fas fa-shopping-bag"></i> Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Sale items will be populated by JavaScript -->
                 </div>
             </div>
         </section>
 
         <!-- Featured Collections Section -->
-        <section class="container">
-            <div class="section-title">
-                <h2>Featured Collections</h2>
-            </div>
-            <div class="collections">
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Classic Tote</h3>
-                        <p>Spacious and stylish, perfect for work and weekend adventures.</p>
-                        <div class="price">
-                            Ksh 2,500
-                            <button class="add-to-cart" data-id="1" data-name="Classic Tote" data-price="2500" data-image="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
+        <section class="featured-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Collections</h2>
+                    <p>Our most popular and loved designs</p>
                 </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Evening Clutch</h3>
-                        <p>Elegant and compact, the perfect accessory for special occasions.</p>
-                        <div class="price">
-                            Ksh 1,800
-                            <button class="add-to-cart" data-id="2" data-name="Evening Clutch" data-price="1800" data-image="https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Crossbody Bag</h3>
-                        <p>Hands-free convenience without compromising on style.</p>
-                        <div class="price">
-                            Ksh 2,200
-                            <button class="add-to-cart" data-id="3" data-name="Crossbody Bag" data-price="2200" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Satchel Bag</h3>
-                        <p>Structured and professional for work settings.</p>
-                        <div class="price">
-                            Ksh 2,800
-                            <button class="add-to-cart" data-id="4" data-name="Satchel Bag" data-price="2800" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Bucket Bag</h3>
-                        <p>Trendy and spacious with a drawstring closure.</p>
-                        <div class="price">
-                            Ksh 2,400
-                            <button class="add-to-cart" data-id="5" data-name="Bucket Bag" data-price="2400" data-image="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Crossbody Bag</h3>
-                        <p>Hands-free convenience without compromising on style.</p>
-                        <div class="price">
-                            Ksh 2,200
-                            <button class="add-to-cart" data-id="6" data-name="Crossbody Bag" data-price="2200" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
+                <div class="collections">
+                    <!-- Featured items will be populated by JavaScript -->
                 </div>
             </div>
         </section>
@@ -260,29 +172,21 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="container testimonials">
-            <div class="section-title">
-                <h2>What Our Customers Say</h2>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-track">
-                    <div class="testimonial">
-                        <p>"I absolutely love my new tote bag! The quality is exceptional and it's so versatile. I've received countless compliments! The customer service was also outstanding."</p>
-                        <div class="author">- Sarah J.</div>
-                    </div>
-                    <div class="testimonial">
-                        <p>"The attention to detail in these bags is remarkable. I purchased the crossbody bag for my vacation and it was perfect - stylish yet practical. Will definitely be buying more!"</p>
-                        <div class="author">- Michelle R.</div>
-                    </div>
-                    <div class="testimonial">
-                        <p>"As someone who values both fashion and functionality, Bags By Love hits the perfect balance. The evening clutch I bought elevated my entire outfit for a special event."</p>
-                        <div class="author">- Jessica T.</div>
-                    </div>
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Customers Say</h2>
+                    <p>Real reviews from real customers</p>
                 </div>
-                <div class="testimonial-nav">
-                    <div class="testimonial-dot active" data-slide="0"></div>
-                    <div class="testimonial-dot" data-slide="1"></div>
-                    <div class="testimonial-dot" data-slide="2"></div>
+                <div class="testimonial-slider">
+                    <div class="testimonial-track">
+                        <!-- Testimonials will be populated by JavaScript -->
+                    </div>
+                    <div class="testimonial-nav">
+                        <div class="testimonial-dot active" data-slide="0"></div>
+                        <div class="testimonial-dot" data-slide="1"></div>
+                        <div class="testimonial-dot" data-slide="2"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -314,111 +218,7 @@
             </div>
             
             <div class="category-grid">
-                <a href="#" class="category-card" data-page="new-arrivals">
-                    <div class="category-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>New Arrivals</h3>
-                    <p>Discover our latest designs and styles</p>
-                </a>
-                <a href="#" class="category-card" data-page="bestsellers">
-                    <div class="category-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3>Bestsellers</h3>
-                    <p>Our most popular and loved bags</p>
-                </a>
-                <a href="#" class="category-card" data-page="sale">
-                    <div class="category-icon">
-                        <i class="fas fa-tag"></i>
-                    </div>
-                    <h3>Sale</h3>
-                    <p>Special discounts on selected items</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-suitcase"></i>
-                    </div>
-                    <h3>Tote Bags</h3>
-                    <p>Spacious and stylish for everyday use</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Work Bags</h3>
-                    <p>Professional and functional for the office</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <h3>Evening Bags</h3>
-                    <p>Elegant accessories for special occasions</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-bag-shopping"></i>
-                    </div>
-                    <h3>Crossbody Bags</h3>
-                    <p>Hands-free convenience with stylish designs</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-backpack"></i>
-                    </div>
-                    <h3>Backpacks</h3>
-                    <p>Comfortable and practical for daily adventures</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3>Clutch Bags</h3>
-                    <p>Elegant and compact for special events</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-bag-shopping"></i>
-                    </div>
-                    <h3>Shoulder Bags</h3>
-                    <p>Classic style with comfortable shoulder straps</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-circle"></i>
-                    </div>
-                    <h3>Hobo Bags</h3>
-                    <p>Slouchy, crescent-shaped bags for casual elegance</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Cosmetic Bags</h3>
-                    <p>Organized storage for your beauty essentials</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h3>Travel Bags</h3>
-                    <p>Spacious and durable for your journeys</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-horse"></i>
-                    </div>
-                    <h3>Saddle Bags</h3>
-                    <p>Vintage-inspired curved designs</p>
-                </a>
-                <a href="#" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Satchels</h3>
-                    <p>Structured bags with top handles and crossbody straps</p>
-                </a>
+                <!-- Categories will be populated by JavaScript -->
             </div>
         </div>
     </div>
@@ -435,84 +235,7 @@
             </div>
             
             <div class="collections">
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Crossbody Bag</h3>
-                        <p>Hands-free convenience without compromising on style.</p>
-                        <div class="price">
-                            Ksh 2,200
-                            <button class="add-to-cart" data-id="3" data-name="Crossbody Bag" data-price="2200" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Satchel Bag</h3>
-                        <p>Structured and professional for work settings.</p>
-                        <div class="price">
-                            Ksh 2,800
-                            <button class="add-to-cart" data-id="4" data-name="Satchel Bag" data-price="2800" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Evening Clutch</h3>
-                        <p>Elegant and compact, the perfect accessory for special occasions.</p>
-                        <div class="price">
-                            Ksh 1,800
-                            <button class="add-to-cart" data-id="2" data-name="Evening Clutch" data-price="1800" data-image="https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Bucket Bag</h3>
-                        <p>Trendy and spacious with a drawstring closure.</p>
-                        <div class="price">
-                            Ksh 2,400
-                            <button class="add-to-cart" data-id="5" data-name="Bucket Bag" data-price="2400" data-image="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Classic Tote</h3>
-                        <p>Spacious and stylish, perfect for work and weekend adventures.</p>
-                        <div class="price">
-                            Ksh 2,500
-                            <button class="add-to-cart" data-id="1" data-name="Classic Tote" data-price="2500" data-image="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Crossbody Bag</h3>
-                        <p>Hands-free convenience without compromising on style.</p>
-                        <div class="price">
-                            Ksh 2,200
-                            <button class="add-to-cart" data-id="6" data-name="Crossbody Bag" data-price="2200" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <!-- New arrivals will be populated by JavaScript -->
             </div>
         </div>
     </div>
@@ -529,84 +252,7 @@
             </div>
             
             <div class="collections">
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Classic Tote</h3>
-                        <p>Spacious and stylish, perfect for work and weekend adventures.</p>
-                        <div class="price">
-                            Ksh 2,500
-                            <button class="add-to-cart" data-id="1" data-name="Classic Tote" data-price="2500" data-image="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Crossbody Bag</h3>
-                        <p>Hands-free convenience without compromising on style.</p>
-                        <div class="price">
-                            Ksh 2,200
-                            <button class="add-to-cart" data-id="3" data-name="Crossbody Bag" data-price="2200" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Weekender Bag</h3>
-                        <p>Perfect for short trips and getaways.</p>
-                        <div class="price">
-                            Ksh 3,500
-                            <button class="add-to-cart" data-id="5" data-name="Weekender Bag" data-price="3500" data-image="https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Satchel Bag</h3>
-                        <p>Structured and professional for work settings.</p>
-                        <div class="price">
-                            Ksh 2,800
-                            <button class="add-to-cart" data-id="4" data-name="Satchel Bag" data-price="2800" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Evening Clutch</h3>
-                        <p>Elegant and compact, the perfect accessory for special occasions.</p>
-                        <div class="price">
-                            Ksh 1,800
-                            <button class="add-to-cart" data-id="2" data-name="Evening Clutch" data-price="1800" data-image="https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Bucket Bag</h3>
-                        <p>Trendy and spacious with a drawstring closure.</p>
-                        <div class="price">
-                            Ksh 2,400
-                            <button class="add-to-cart" data-id="5" data-name="Bucket Bag" data-price="2400" data-image="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Bestsellers will be populated by JavaScript -->
             </div>
         </div>
     </div>
@@ -623,108 +269,7 @@
             </div>
             
             <div class="collections">
-                <div class="collection-card fade-in">
-                    <div class="sale-badge">30% OFF</div>
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Weekender Bag</h3>
-                        <p>Perfect for short trips and getaways.</p>
-                        <div class="price">
-                            <div>
-                                <span class="original-price">Ksh 3,500</span>
-                                <span class="sale-price">Ksh 2,500</span>
-                            </div>
-                            <button class="add-to-cart" data-id="13" data-name="Weekender Bag" data-price="2500" data-image="https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="sale-badge">25% OFF</div>
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Satchel Bag</h3>
-                        <p>Structured and professional for work settings.</p>
-                        <div class="price">
-                            <div>
-                                <span class="original-price">Ksh 2,800</span>
-                                <span class="sale-price">Ksh 1,900</span>
-                            </div>
-                            <button class="add-to-cart" data-id="14" data-name="Satchel Bag" data-price="1900" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="sale-badge">40% OFF</div>
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Bucket Bag</h3>
-                        <p>Trendy and spacious with a drawstring closure.</p>
-                        <div class="price">
-                            <div>
-                                <span class="original-price">Ksh 2,400</span>
-                                <span class="sale-price">Ksh 1,600</span>
-                            </div>
-                            <button class="add-to-cart" data-id="15" data-name="Bucket Bag" data-price="1600" data-image="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="sale-badge">35% OFF</div>
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Crossbody Bag</h3>
-                        <p>Hands-free convenience without compromising on style.</p>
-                        <div class="price">
-                            <div>
-                                <span class="original-price">Ksh 2,200</span>
-                                <span class="sale-price">Ksh 1,430</span>
-                            </div>
-                            <button class="add-to-cart" data-id="16" data-name="Crossbody Bag" data-price="1430" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="sale-badge">20% OFF</div>
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Classic Tote</h3>
-                        <p>Spacious and stylish, perfect for work and weekend adventures.</p>
-                        <div class="price">
-                            <div>
-                                <span class="original-price">Ksh 2,500</span>
-                                <span class="sale-price">Ksh 2,000</span>
-                            </div>
-                            <button class="add-to-cart" data-id="17" data-name="Classic Tote" data-price="2000" data-image="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="collection-card fade-in">
-                    <div class="sale-badge">15% OFF</div>
-                    <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="collection-info">
-                        <h3>Evening Clutch</h3>
-                        <p>Elegant and compact, the perfect accessory for special occasions.</p>
-                        <div class="price">
-                            <div>
-                                <span class="original-price">Ksh 1,800</span>
-                                <span class="sale-price">Ksh 1,530</span>
-                            </div>
-                            <button class="add-to-cart" data-id="18" data-name="Evening Clutch" data-price="1530" data-image="https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Sale items will be populated by JavaScript -->
             </div>
         </div>
     </div>
@@ -736,17 +281,17 @@
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
             <div class="section-title">
-                <h2>About Bags By Love</h2>
+                <h2>About Bags By Eve</h2>
                 <p>Our story and commitment to quality</p>
             </div>
             
-            <div class="about-content" style="max-width: 800px; margin: 0 auto;">
-                <div style="text-align: center; margin-bottom: 50px;">
-                    <h3 style="color: var(--accent); margin-bottom: 20px; font-family: 'Playfair Display', serif;">Made for the Modern Woman</h3>
-                    <p style="font-size: 18px; line-height: 1.8;">Bags By Love was born from a passion for creating beautiful, functional bags that empower women in their daily lives. Each design is carefully crafted with attention to detail, quality materials, and the modern woman's needs in mind.</p>
+            <div class="about-content">
+                <div class="about-hero">
+                    <h3>Made for the Modern Woman</h3>
+                    <p>Bags By Love was born from a passion for creating beautiful, functional bags that empower women in their daily lives. Each design is carefully crafted with attention to detail, quality materials, and the modern woman's needs in mind.</p>
                 </div>
                 
-                <div class="features-grid" style="margin-top: 60px;">
+                <div class="features-grid">
                     <div class="feature">
                         <i class="fas fa-heart"></i>
                         <h3>Our Passion</h3>
@@ -778,16 +323,16 @@
                 <p>We'd love to hear from you</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1000px; margin: 0 auto;">
-                <div>
-                    <h3 style="color: var(--accent); margin-bottom: 20px; font-family: 'Playfair Display', serif;">Get in Touch</h3>
-                    <div style="margin-bottom: 30px;">
-                        <p><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 10px;"></i> Nairobi, Kenya</p>
-                        <p><i class="fas fa-phone" style="color: var(--accent); margin-right: 10px;"></i> +254 711 642 342</p>
-                        <p><i class="fas fa-envelope" style="color: var(--accent); margin-right: 10px;"></i> hello@bagsbylove.com</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                        <p><i class="fas fa-phone"></i> +254 711 642 342</p>
+                        <p><i class="fas fa-envelope"></i> hello@bagsbyeve.com</p>
                     </div>
                     
-                    <h3 style="color: var(--accent); margin-bottom: 20px; font-family: 'Playfair Display', serif;">Connect With Us</h3>
+                    <h3>Connect With Us</h3>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -796,13 +341,13 @@
                     </div>
                 </div>
                 
-                <div>
-                    <h3 style="color: var(--accent); margin-bottom: 20px; font-family: 'Playfair Display', serif;">Send a Message</h3>
-                    <form style="display: flex; flex-direction: column; gap: 20px;">
-                        <input type="text" placeholder="Your Name" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
-                        <input type="email" placeholder="Your Email" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
-                        <textarea placeholder="Your Message" rows="5" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;"></textarea>
-                        <button type="submit" class="btn" style="align-self: flex-start;">Send Message</button>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -829,7 +374,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <span class="logo-main">BAGS BY LOVE</span>
+                        <span class="logo-main">BAGS BY EVE</span>
                         <span class="logo-tagline">MADE FOR THE MODERN WOMAN</span>
                     </div>
                     <p>Creating elegant, functional bags for the contemporary woman who values style and substance.</p>
@@ -864,12 +409,12 @@
                     <ul class="footer-links">
                         <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
                         <li><i class="fas fa-phone"></i> +254 711 642 342</li>
-                        <li><i class="fas fa-envelope"></i> hello@bagsbylove.com</li>
+                        <li><i class="fas fa-envelope"></i> hello@bagsbyeve.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Bags By Love | Made for the Modern Woman. All rights reserved.</p>
+                <p>&copy; 2025 Bags By Eve | Made for the Modern Woman. All rights reserved.</p>
             </div>
         </div>
     </footer>
