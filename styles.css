@@ -1,22 +1,411 @@
-/* Custom properties (Retained) */
+/* styles.css - COMPLETE DARK PURPLE LUXURY THEME FOR BAGS BY EVE */
+
+/* --- 1. GLOBAL VARIABLES & RESET --- */
 :root {
-    /* ... existing variables ... */
-    --pdp-border: #E0E0E0;
-    --pdp-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* DARK MODE PALETTE */
+    --primary: #BB86FC; /* Light Purple/Accent for buttons/links (Visible on Dark) */
+    --secondary: #6200EE; /* Deep Accent */
+    --accent: #BB86FC1A; /* Very subtle light background for cards/sections */
+    --dark: #121212; /* Very Dark Background */
+    --light: #1E1E1E; /* Secondary Dark Background/Card Base */
+    --text: #E0E0E0; /* Light text on dark background */
+    --white: #FFFFFF;
+    --sale: #CF6679; /* Soft Red for Sale */
+    --gold: #FFD700;
+    --header-bg: #2C003E; /* Dark Purple for header/footer */
+    --nav-text: var(--text);
+    
+    --glass: rgba(255, 255, 255, 0.05); /* Lighter Glass Effect */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow contrast */
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --pdp-border: #333;
+    --pdp-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Base and Header (Retained) */
-/* ... (Existing global styles and header/navigation CSS) ... */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-/* --- HOME PAGE RICH CONTENT SECTIONS --- */
+body {
+    background-color: var(--dark);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-content {
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* --- 2. TYPOGRAPHY AND UTILITIES --- */
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    line-height: 1.2;
+}
 
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     text-align: center;
-    color: var(--dark);
+    color: var(--white);
     margin-bottom: 50px;
     margin-top: 50px;
+    padding-top: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--dark); /* Dark text on light button */
+    box-shadow: 0 4px 10px rgba(187, 134, 252, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+/* --- 3. HEADER & NAVIGATION --- */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--header-bg); /* Dark Purple BG for Header */
+    box-shadow: var(--shadow);
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--nav-text);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 1.2rem;
+    color: var(--nav-text);
+    cursor: pointer;
+    position: relative;
+}
+
+.header-icon:hover {
+    color: var(--primary);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: var(--primary);
+    color: var(--dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50%;
+    padding: 2px 6px;
+}
+
+/* --- 4. HERO SECTION --- */
+
+.hero {
+    background: url('https://images.unsplash.com/photo-1554563829-37e492f15560?q=80&w=1920&h=800&fit=crop') no-repeat center center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px; /* Adjust for fixed header */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--dark) 0%, rgba(18, 18, 18, 0.4) 50%, rgba(18, 18, 18, 0.1) 100%);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 500px;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- 5. HOME PAGE RICH CONTENT SECTIONS --- */
+
+.features-section {
+    background-color: var(--light);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.feature-item p {
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+/* Featured Products (General Product Grid Styling) */
+.product-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.product-card {
+    background-color: var(--light); /* Slightly lighter background for cards */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--pdp-shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 300px; /* Fixed height for image consistency */
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.sale-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--sale);
+    color: var(--white);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+    z-index: 20;
+}
+
+.quick-view-btn {
+    position: absolute;
+    bottom: -50px; /* Start hidden */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 20;
+}
+
+.product-card:hover .quick-view-btn {
+    bottom: 20px; /* Slide up on hover */
+}
+
+.product-info {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.product-category {
+    font-size: 0.85rem;
+    color: #A0A0A0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-price-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.product-price-original {
+    text-decoration: line-through;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    padding: 10px;
+    font-size: 0.9rem;
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.btn-add-to-cart:hover {
+    background: var(--primary);
+    color: var(--dark);
 }
 
 /* Shop By Material Grid */
@@ -37,6 +426,7 @@
     cursor: pointer;
     box-shadow: var(--pdp-shadow);
     transition: transform 0.3s;
+    background-color: var(--light);
 }
 
 .material-card:hover {
@@ -87,17 +477,111 @@
 .style-guide-content h2 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: var(--dark);
+    color: var(--text);
     margin-bottom: 10px;
 }
 
 .style-guide-content p {
     font-size: 1.1rem;
-    color: var(--text);
+    color: #A0A0A0;
     margin-bottom: 30px;
 }
 
-/* --- PRODUCT DETAIL PAGE (PDP) LAYOUT --- */
+/* --- 6. COLLECTION PAGE LAYOUT --- */
+
+#collections-page {
+    padding-top: 100px;
+}
+
+.collection-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.collection-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.collection-layout {
+    display: flex;
+    gap: 30px;
+}
+
+.filter-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    align-self: flex-start; /* Stick to the top */
+}
+
+.filter-group {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.filter-group h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.filter-option {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--primary);
+}
+
+.price-range-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.price-range-inputs input {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #555;
+    background-color: var(--dark);
+    color: var(--text);
+    border-radius: 4px;
+}
+
+.collection-main {
+    flex-grow: 1;
+}
+
+.sort-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--light);
+    border-radius: 8px;
+}
+
+.sort-bar select {
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: var(--dark);
+    color: var(--text);
+    cursor: pointer;
+}
+
+/* --- 7. PRODUCT DETAIL PAGE (PDP) LAYOUT --- */
 
 #product-page {
     padding-top: 100px;
@@ -161,7 +645,7 @@
 
 .pdp-category {
     font-size: 0.9rem;
-    color: #999;
+    color: var(--primary); /* Highlight category in purple */
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 5px;
@@ -170,7 +654,7 @@
 .pdp-name {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    color: var(--dark);
+    color: var(--white);
     margin-bottom: 15px;
 }
 
@@ -206,7 +690,7 @@
 .pdp-description-box h3, .pdp-specifications h3 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--dark);
+    color: var(--white);
     margin-bottom: 10px;
 }
 
@@ -224,6 +708,7 @@
 
 /* PDP Specifications Table/List */
 .pdp-specifications {
+    background-color: var(--light);
     border: 1px solid var(--pdp-border);
     padding: 20px;
     border-radius: 6px;
@@ -233,7 +718,7 @@
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
 }
 
 .spec-item:last-child {
@@ -242,7 +727,7 @@
 
 .spec-label {
     font-weight: 600;
-    color: var(--dark);
+    color: var(--text);
 }
 
 .spec-value {
@@ -254,7 +739,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: left;
+    text-align: right;
 }
 
 .feature-list li {
@@ -272,9 +757,328 @@
     margin-top: 50px;
 }
 
-/* --- RESPONSIVENESS (for the new PDP) --- */
+/* --- 8. CART PAGE STYLING --- */
+
+#cart-page {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.page-header {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--white);
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.cart-items-list {
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--pdp-shadow);
+}
+
+.empty-cart-message {
+    text-align: center;
+    padding: 50px 0;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+.cart-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.cart-item-details p {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.cart-summary-box {
+    background-color: var(--light);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--pdp-shadow);
+}
+
+.cart-summary-box h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.total-line {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    margin-top: 15px;
+}
+
+.cart-summary-box .btn {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* --- 9. MODALS & NOTIFICATIONS --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: var(--dark);
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.modal-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.modal-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: var(--white);
+}
+
+.modal-details p {
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.modal-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Notification (Toast) */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--light);
+    color: var(--text);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 3000;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.4s ease-out;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-content i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+/* --- 10. FOOTER & FLOATING CART --- */
+
+footer {
+    background-color: var(--header-bg);
+    color: var(--text);
+    padding: 50px 0 20px;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.footer-links a {
+    color: var(--text);
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-links i {
+    color: var(--primary);
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Floating Cart Button */
+.floating-cart {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--primary);
+    color: var(--dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(187, 134, 252, 0.6);
+    z-index: 500;
+    transition: transform 0.2s;
+}
+
+.floating-cart:hover {
+    transform: scale(1.1);
+}
+
+.cart-count-floating {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--sale);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50%;
+    padding: 2px 6px;
+}
+
+/* --- 11. RESPONSIVENESS --- */
 
 @media (max-width: 992px) {
+    /* PDP Adjustments */
     .pdp-grid {
         grid-template-columns: 1fr; /* Stack on mobile/tablet */
         gap: 30px;
@@ -291,177 +1095,92 @@
     .pdp-name {
         font-size: 2rem;
     }
+    
+    /* Collection Adjustments */
+    .collection-layout {
+        flex-direction: column;
+    }
 
+    .filter-sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .collection-header h1 {
+        font-size: 2rem;
+    }
+
+    /* Cart Adjustments */
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-summary-box {
+        order: -1; /* Move summary box above items on mobile */
+    }
+
+    /* General Layout */
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .material-grid {
         grid-template-columns: 1fr;
     }
-}
-
-/* styles.css - DARK PURPLE LUXURY THEME */
-
-:root {
-    /* DARK MODE PALETTE */
-    --primary: #BB86FC; /* Light Purple/Accent for buttons/links (Visible on Dark) */
-    --secondary: #6200EE; /* Deep Accent */
-    --accent: #BB86FC1A; /* Very subtle light background for cards/sections */
-    --dark: #121212; /* Very Dark Background */
-    --light: #1E1E1E; /* Secondary Dark Background/Card Base */
-    --text: #E0E0E0; /* Light text on dark background */
-    --white: #FFFFFF;
-    --sale: #CF6679; /* Soft Red for Sale */
-    --gold: #FFD700;
-    --header-bg: #2C003E; /* Dark Purple for header/footer */
-    --nav-text: var(--text);
     
-    --glass: rgba(255, 255, 255, 0.05); /* Lighter Glass Effect */
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow contrast */
-    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-    --pdp-border: #333;
-    --pdp-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    /* Navigation on Smaller Screens */
+    nav {
+        display: none; /* Hide main nav on small screens */
+    }
 }
 
-body {
-    background-color: var(--dark);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
+@media (max-width: 600px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .header-container {
+        padding: 0 15px;
+    }
 
-/* Header & Navigation Adjustments for Dark Theme */
-header {
-    background-color: var(--header-bg); /* Dark Purple BG for Header */
-    box-shadow: var(--shadow);
-}
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .product-grid-container {
+        grid-template-columns: 1fr;
+    }
 
-.nav-link, .header-icon {
-    color: var(--nav-text);
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+    
+    .floating-cart, .notification {
+        transform: scale(0.9);
+        bottom: 15px;
+        left: 15px;
+        right: auto;
+    }
+    
+    .notification {
+        bottom: 80px; /* Position above floating cart */
+    }
 }
-
-.nav-link:hover, .header-icon:hover {
-    color: var(--primary);
-}
-
-/* Button Adjustments for Dark Theme */
-.btn-primary {
-    background: var(--primary);
-    color: var(--dark); /* Dark text on light button */
-    box-shadow: 0 4px 10px rgba(187, 134, 252, 0.3);
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary);
-    color: var(--white);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
-
-.btn-secondary:hover {
-    background-color: var(--primary);
-    color: var(--dark);
-}
-
-/* Product Card Adjustments */
-.product-card {
-    background-color: var(--light); /* Slightly lighter background for cards */
-    color: var(--text);
-    box-shadow: var(--pdp-shadow);
-}
-
-.product-name {
-    color: var(--text);
-}
-
-.product-category {
-    color: #A0A0A0;
-}
-
-/* Section Titles */
-.section-title {
-    color: var(--white);
-}
-
-/* Shop By Material Section */
-.material-card {
-    background-color: var(--light);
-    box-shadow: var(--pdp-shadow);
-}
-
-/* Style Guide Section */
-.style-guide-section {
-    background-color: var(--light);
-}
-
-.style-guide-content h2 {
-    color: var(--text);
-}
-
-.style-guide-content p {
-    color: #A0A0A0;
-}
-
-/* Footer Adjustments for Dark Theme */
-footer {
-    background-color: var(--header-bg);
-    color: var(--text);
-}
-
-.footer-column h3 {
-    color: var(--primary);
-}
-
-.footer-links a {
-    color: var(--text);
-}
-
-.footer-links a:hover {
-    color: var(--primary);
-}
-
-.footer-links i {
-    color: var(--primary);
-}
-
-/* PDP Details Adjustments */
-.pdp-details {
-    color: var(--text);
-}
-
-.pdp-name {
-    color: var(--white);
-}
-
-.pdp-category {
-    color: var(--primary);
-}
-
-.pdp-price {
-    color: var(--primary);
-}
-
-.pdp-description-box h3, .pdp-specifications h3 {
-    color: var(--white);
-}
-
-.pdp-specifications {
-    background-color: var(--light);
-    border: 1px solid var(--pdp-border);
-}
-
-.spec-label {
-    color: var(--text);
-}
-
-.feature-list li i {
-    color: var(--primary);
-}
-
-/* Retaining the rest of the previous PDP and collection CSS */
