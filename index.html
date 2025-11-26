@@ -3,201 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAGS BY EVE | Made for the Modern Woman</title>
+    <title>BAGS BY EVE | Elegance & Rich Detail</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sale-popup" id="sale-popup">
-        <div class="sale-popup-content">
-            <button class="close-popup" id="close-popup">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>SPECIAL SALE!</h2>
-            <div class="discount">UP TO 50% OFF</div>
-            <p>Discover our exclusive collection of discounted bags. Limited time offer!</p>
-            <a href="#" class="btn btn-whatsapp" id="shop-sale-item" data-page="collections">
-                <i class="fas fa-arrow-right"></i> Shop Sale
-            </a>
-        </div>
-    </div>
     
-    <header class="header">
-        <div class="container header-content">
-            <a href="#" class="logo" data-page="home">BAGS BY EVE</a>
-            <nav class="nav">
-                <a href="#" data-page="home" data-key="home">Home</a>
-                <a href="#" data-page="collections" data-key="collections">Collections</a>
-                <a href="#" data-page="newArrivals" data-key="newArrivals">New Arrivals</a>
-                <a href="#" data-page="bestsellers" data-key="bestsellers">Bestsellers</a>
-                <a href="#" data-page="sale" data-key="sale">Sale</a>
-            </nav>
-            <div class="header-actions">
-                <button class="action-btn search-btn"><i class="fas fa-search"></i></button>
-                <button class="action-btn cart-btn" data-page="cart">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count" id="cart-count">0</span>
-                </button>
-                <div class="language-selector">
-                    <button class="language-btn">
-                        <i class="fas fa-globe"></i> <span>EN</span>
-                    </button>
-                </div>
-                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-            </div>
-        </div>
-    </header>
-
     <main>
         
         <section id="home-page" class="page-content">
             <div class="hero">
-                <div class="hero-content container">
-                    <h1 class="hero-title" data-key="heroTitle">Elegance Redefined</h1>
-                    <p class="hero-subtitle" data-key="heroSubtitle">Discover our exclusive collection of handcrafted bags designed for the modern woman</p>
-                    <div class="hero-actions">
-                        <a href="#" class="btn btn-primary" data-page="collections">Shop Now <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://wa.me/254711642342" target="_blank" class="btn btn-whatsapp" data-key="shopWhatsApp"><i class="fab fa-whatsapp"></i> Shop on WhatsApp</a>
+                </div>
+            
+            <div class="container material-section">
+                <h2 class="section-title" data-key="shopByMaterial">Shop By Material</h2>
+                <div class="material-grid">
+                    <div class="material-card" onclick="loadPage('collections')">
+                        <img src="https://images.unsplash.com/photo-1596707328511-2d7c04100c4c?q=80&w=600&h=400&fit=crop" alt="Genuine Leather Bags">
+                        <div class="material-overlay">
+                            <h3 data-key="leather">Genuine Leather</h3>
+                            <span>Shop Now &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="material-card" onclick="loadPage('collections')">
+                        <img src="https://images.unsplash.com/photo-1547466184-21952a13b632?q=80&w=600&h=400&fit=crop" alt="Durable Canvas Bags">
+                        <div class="material-overlay">
+                            <h3 data-key="canvas">Durable Canvas</h3>
+                            <span>Shop Now &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="material-card" onclick="loadPage('collections')">
+                        <img src="https://images.unsplash.com/photo-1627086888636-f18b33568c0c?q=80&w=600&h=400&fit=crop" alt="Vegan Eco-Leather Bags">
+                        <div class="material-overlay">
+                            <h3 data-key="vegan">Vegan Eco-Leather</h3>
+                            <span>Shop Now &rarr;</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <div class="style-guide-section">
+                <div class="container style-guide-content">
+                    <h2 data-key="styleGuideTitle">The Eve Style Guide</h2>
+                    <p data-key="styleGuideSubtitle">How to carry your style, from day to night.</p>
+                    <a href="#" class="btn btn-secondary">Read The Guide</a>
+                </div>
+            </div>
+
+            </section>
         
         <section id="collections-page" class="page-content" style="display: none;">
-            <div class="container collection-header">
-                <h1 data-key="collectionTitle">The Entire Collection</h1>
-            </div>
+            </section>
 
-            <button id="mobile-filter-toggle" class="btn btn-secondary mobile-filter-btn">
-                <i class="fas fa-filter"></i> <span data-key="filter">Filter</span>
-            </button>
-
-            <div class="container collection-layout">
-                
-                <aside class="filter-sidebar">
-                    <button class="filter-close-btn"><i class="fas fa-times"></i></button>
-                    
-                    <div class="filter-group">
-                        <h3 class="filter-title">Category</h3>
-                        <div class="filter-options" id="category-filters">
-                            </div>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <h3 class="filter-title" data-key="priceRange">Price Range</h3>
-                        <div class="price-range-display">
-                            <span id="min-price-display">Ksh 0</span> — <span id="max-price-display">Ksh 10,000</span>
-                        </div>
-                        <input type="range" id="price-range-slider" min="0" max="10000" step="100"> 
-                    </div>
-                    
-                    <button class="btn btn-primary filter-apply-mobile">Apply Filters</button>
-                    
-                </aside>
-
-                <div class="collection-main">
-                    
-                    <div class="sort-bar">
-                        <div class="result-count-info">
-                            <span id="result-count">12 Results</span>
-                        </div>
-                        <div class="sort-control">
-                            <label for="sort-by" data-key="sortBy">Sort By:</label>
-                            <select id="sort-by">
-                                <option value="featured" data-key="featured">Featured</option>
-                                <option value="priceLowToHigh" data-key="priceLowToHigh">Price: Low to High</option>
-                                <option value="priceHighToLow" data-key="priceHighToLow">Price: High to Low</option>
-                                <option value="alphabetical" data-key="alphabetical">Alphabetical</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="product-grid-container" id="product-grid">
-                        </div>
-                    
+        <section id="product-page" class="page-content" style="display: none;">
+            <div class="product-detail-container" id="product-detail-container">
                 </div>
-            </div>
         </section>
-        
-        <section id="newArrivals-page" class="page-content" style="display: none;"><div class="container"><h2>New Arrivals</h2><p>Check out the newest additions to our collection.</p></div></section>
-        <section id="bestsellers-page" class="page-content" style="display: none;"><div class="container"><h2>Bestsellers</h2><p>Our most popular and loved designs.</p></div></section>
-        <section id="sale-page" class="page-content" style="display: none;"><div class="container"><h2>Sale Items</h2><p>Limited time offers on selected items.</p></div></section>
-        <section id="about-page" class="page-content" style="display: none;"><div class="container"><h2>Our Story</h2><p>Read about the passion and craft behind Bags By Eve.</p></div></section>
-        <section id="contact-page" class="page-content" style="display: none;"><div class="container"><h2>Contact Us</h2><p>We'd love to hear from you.</p></div></section>
-        <section id="cart-page" class="page-content" style="display: none;"><div class="container"><h2>Your Bag</h2><p>Review your selected items and proceed to checkout.</p></div></section>
 
-    </main>
-
-    <div class="modal" id="quick-view-modal">
-        <div class="modal-content">
-            <button class="modal-close-btn" id="modal-close-btn"><i class="fas fa-times"></i></button>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img id="modal-product-image" src="" alt="Product Image">
-                </div>
-                <div class="modal-details">
-                    <h2 id="modal-product-name">Product Name</h2>
-                    <p class="modal-product-category" id="modal-product-category">Category</p>
-                    <div class="modal-price" id="modal-product-price">Ksh 0</div>
-                    <p id="modal-product-description">A short description of the product.</p>
-                    <button class="btn btn-primary" id="modal-add-to-cart">Add to Bag</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column footer-logo">
-                    <h2>BAGS BY EVE</h2>
-                    <p>Elegance meets everyday functionality.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Shop</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" data-page="collections">All Collections</a></li>
-                        <li><a href="#" data-page="newArrivals">New Arrivals</a></li>
-                        <li><a href="#" data-page="sale">Sale</a></li>
-                        <li><a href="#">Size Guide</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>About</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" data-page="about">Our Story</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Artisans</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
-                        <li><i class="fas fa-phone"></i> +254 711 642 342</li>
-                        <li><i class="fas fa-envelope"></i> hello@bagsbyeve.com</li>
-                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Bags By Eve | Made for the Modern Woman. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <div class="floating-cart" id="floating-cart">
-        <i class="fas fa-shopping-bag"></i>
-        <div class="cart-count-floating">0</div>
-    </div>
+        </main>
 
     <script src="script.js"></script>
 </body>
