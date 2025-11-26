@@ -10,18 +10,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Christmas Sale Popup -->
+    <div class="sale-popup" id="sale-popup">
+        <div class="sale-popup-content">
+            <div class="sale-header">
+                <h2>🎄 Christmas Sale! 🎁</h2>
+                <button class="close-popup" id="close-popup">&times;</button>
+            </div>
+            <div class="sale-body">
+                <p>Enjoy up to <strong>40% OFF</strong> on selected bags this holiday season!</p>
+                <p>Use code: <span class="coupon-code">XMAS2023</span> for extra 10% off</p>
+                <div class="sale-timer">
+                    <p>Sale ends in: <span id="sale-timer">14:23:45</span></p>
+                </div>
+                <button class="btn btn-primary" onclick="loadPage('collections', 'sale')">Shop Sale Items</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#home-page" class="logo" onclick="loadPage('home-page')">BAGS BY EVE</a>
+            <a href="#home-page" class="logo" onclick="loadPage('home-page')">
+                <span class="logo-text">BAGS BY EVE</span>
+            </a>
             <nav>
                 <a href="#home-page" class="nav-link active" onclick="loadPage('home-page')">Home</a>
                 <a href="#collections-page" class="nav-link" onclick="loadPage('collections')">Collections</a>
+                <a href="#gift-page" class="nav-link" onclick="loadPage('gift')">Gift Ideas</a>
                 <a href="#about-page" class="nav-link" onclick="loadPage('about')">About</a>
                 <a href="#contact-page" class="nav-link" onclick="loadPage('contact')">Contact</a>
             </nav>
             <div class="header-actions">
-                <div class="header-icon search-icon">
+                <div class="header-icon search-icon" id="search-toggle">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="header-icon user-icon">
@@ -33,6 +54,13 @@
                 </div>
             </div>
         </div>
+        <!-- Search Bar -->
+        <div class="search-bar" id="search-bar">
+            <div class="container">
+                <input type="text" placeholder="Search for bags, collections, materials..." id="search-input">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -41,15 +69,37 @@
         <section id="home-page" class="page-content">
             <!-- Hero Section -->
             <div class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1 class="hero-title">ELEVATE YOUR STYLE</h1>
-                        <p class="hero-subtitle">Discover our collection of premium handbags crafted for the modern woman</p>
-                        <div class="hero-actions">
-                            <a href="#collections-page" class="btn btn-primary" onclick="loadPage('collections')">Shop Now</a>
-                            <a href="#collections-page" class="btn btn-secondary" onclick="loadPage('collections')">New Arrivals</a>
-                        </div>
+                <div class="hero-slider">
+                    <div class="slide active">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1200&h=600&fit=crop" alt="Luxury Handbags">
                     </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&h=600&fit=crop" alt="Designer Bags">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?q=80&w=1200&h=600&fit=crop" alt="Premium Collection">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1549487593-9426f491c121?q=80&w=1200&h=600&fit=crop" alt="Evening Bags">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1555026901-26685f02c610?q=80&w=1200&h=600&fit=crop" alt="Crossbody Collection">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1594953922615-566d5113d078?q=80&w=1200&h=600&fit=crop" alt="Travel Bags">
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <h1 class="hero-title">ELEVATE YOUR STYLE</h1>
+                    <p class="hero-subtitle">Premium handbags crafted for the modern woman. Timeless elegance meets contemporary design.</p>
+                    <div class="hero-actions">
+                        <a href="#collections-page" class="btn btn-primary" onclick="loadPage('collections')">Shop Now</a>
+                        <a href="#collections-page" class="btn btn-secondary" onclick="loadPage('collections', 'sale')">Christmas Sale</a>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
 
@@ -73,6 +123,11 @@
                             <h3>Easy Returns</h3>
                             <p>30-day hassle-free return policy</p>
                         </div>
+                        <div class="feature-item">
+                            <i class="fas fa-gift"></i>
+                            <h3>Gift Wrapping</h3>
+                            <p>Free luxury gift wrapping available</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,30 +140,30 @@
                 </div>
             </div>
 
-            <!-- Shop By Material -->
-            <div class="container material-section">
-                <h2 class="section-title">Shop By Material</h2>
-                <div class="material-grid">
-                    <div class="material-card" onclick="loadPage('collections', 'leather')">
-                        <img src="https://images.unsplash.com/photo-1596707328511-2d7c04100c4c?q=80&w=600&h=400&fit=crop" alt="Genuine Leather Bags">
-                        <div class="material-overlay">
-                            <h3>Genuine Leather</h3>
-                            <span>Shop Now &rarr;</span>
+            <!-- Christmas Special Section -->
+            <div class="christmas-section">
+                <div class="container">
+                    <div class="christmas-content">
+                        <h2>🎁 Christmas Special Collection</h2>
+                        <p>Perfect gifts for your loved ones this holiday season</p>
+                        <div class="christmas-offer">
+                            <div class="offer-card">
+                                <i class="fas fa-gift"></i>
+                                <h3>Free Gift Wrapping</h3>
+                                <p>On all orders until December 25th</p>
+                            </div>
+                            <div class="offer-card">
+                                <i class="fas fa-tag"></i>
+                                <h3>Extra 10% Off</h3>
+                                <p>Use code: XMAS2023</p>
+                            </div>
+                            <div class="offer-card">
+                                <i class="fas fa-shipping-fast"></i>
+                                <h3>Express Shipping</h3>
+                                <p>Guaranteed delivery before Christmas</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="material-card" onclick="loadPage('collections', 'canvas')">
-                        <img src="https://images.unsplash.com/photo-1547466184-21952a13b632?q=80&w=600&h=400&fit=crop" alt="Durable Canvas Bags">
-                        <div class="material-overlay">
-                            <h3>Durable Canvas</h3>
-                            <span>Shop Now &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="material-card" onclick="loadPage('collections', 'vegan')">
-                        <img src="https://images.unsplash.com/photo-1627086888636-f18b33568c0c?q=80&w=600&h=400&fit=crop" alt="Vegan Eco-Leather Bags">
-                        <div class="material-overlay">
-                            <h3>Vegan Eco-Leather</h3>
-                            <span>Shop Now &rarr;</span>
-                        </div>
+                        <a href="#collections-page" class="btn btn-primary" onclick="loadPage('collections', 'sale')">Shop Christmas Collection</a>
                     </div>
                 </div>
             </div>
@@ -121,59 +176,65 @@
                         <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&h=400&fit=crop" alt="Tote Bags">
                         <div class="category-overlay">
                             <h3>Tote Bags</h3>
+                            <span>Shop Collection</span>
                         </div>
                     </div>
                     <div class="category-card" onclick="loadPage('collections', 'crossbody')">
                         <img src="https://images.unsplash.com/photo-1555026901-26685f02c610?q=80&w=600&h=400&fit=crop" alt="Crossbody Bags">
                         <div class="category-overlay">
                             <h3>Crossbody Bags</h3>
+                            <span>Shop Collection</span>
                         </div>
                     </div>
                     <div class="category-card" onclick="loadPage('collections', 'clutches')">
                         <img src="https://images.unsplash.com/photo-1549487593-9426f491c121?q=80&w=600&h=400&fit=crop" alt="Clutch Bags">
                         <div class="category-overlay">
                             <h3>Clutch Bags</h3>
+                            <span>Shop Collection</span>
                         </div>
                     </div>
                     <div class="category-card" onclick="loadPage('collections', 'backpacks')">
                         <img src="https://images.unsplash.com/photo-1594953922615-566d5113d078?q=80&w=600&h=400&fit=crop" alt="Backpacks">
                         <div class="category-overlay">
                             <h3>Backpacks</h3>
-                        </div>
-                    </div>
-                    <div class="category-card" onclick="loadPage('collections', 'satchels')">
-                        <img src="https://images.unsplash.com/photo-1626084196160-50b865611f8e?q=80&w=600&h=400&fit=crop" alt="Satchel Bags">
-                        <div class="category-overlay">
-                            <h3>Satchel Bags</h3>
-                        </div>
-                    </div>
-                    <div class="category-card" onclick="loadPage('collections', 'mini_bags')">
-                        <img src="https://images.unsplash.com/photo-1624378772274-1a5666f4886b?q=80&w=600&h=400&fit=crop" alt="Mini Bags">
-                        <div class="category-overlay">
-                            <h3>Mini Bags</h3>
+                            <span>Shop Collection</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Style Guide Section -->
-            <div class="style-guide-section">
-                <div class="container style-guide-content">
-                    <h2>The Eve Style Guide</h2>
-                    <p>How to carry your style, from day to night.</p>
-                    <a href="#" class="btn btn-secondary">Read The Guide</a>
+            <!-- Gift Cards Section -->
+            <div class="gift-card-section">
+                <div class="container">
+                    <div class="gift-card-content">
+                        <div class="gift-card-text">
+                            <h2>Gift Cards</h2>
+                            <p>The perfect solution when you're unsure what to gift. Let them choose their favorite bag!</p>
+                            <div class="gift-card-options">
+                                <div class="gift-amount" data-amount="5000">Ksh 5,000</div>
+                                <div class="gift-amount" data-amount="10000">Ksh 10,000</div>
+                                <div class="gift-amount" data-amount="15000">Ksh 15,000</div>
+                                <div class="gift-amount" data-amount="20000">Ksh 20,000</div>
+                            </div>
+                            <button class="btn btn-primary" onclick="loadPage('gift')">Purchase Gift Card</button>
+                        </div>
+                        <div class="gift-card-image">
+                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=600&h=400&fit=crop" alt="Gift Card">
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Newsletter Section -->
             <div class="newsletter-section">
                 <div class="container newsletter-content">
-                    <h2>Join Our Community</h2>
-                    <p>Subscribe to receive updates on new collections and exclusive offers</p>
+                    <h2>Join Our Exclusive Community</h2>
+                    <p>Subscribe to receive updates on new collections, exclusive offers, and styling tips</p>
                     <div class="newsletter-form">
                         <input type="email" placeholder="Your email address">
                         <button class="btn btn-primary">Subscribe</button>
                     </div>
+                    <p class="newsletter-note">By subscribing, you agree to our Privacy Policy</p>
                 </div>
             </div>
         </section>
@@ -209,22 +270,6 @@
                             <label class="filter-option">
                                 <input type="checkbox" name="category" value="mini_bags"> Mini Bags
                             </label>
-                            <label class="filter-option">
-                                <input type="checkbox" name="category" value="travel_bags"> Travel Bags
-                            </label>
-                        </div>
-
-                        <div class="filter-group">
-                            <h4>Material</h4>
-                            <label class="filter-option">
-                                <input type="checkbox" name="material" value="leather"> Genuine Leather
-                            </label>
-                            <label class="filter-option">
-                                <input type="checkbox" name="material" value="canvas"> Durable Canvas
-                            </label>
-                            <label class="filter-option">
-                                <input type="checkbox" name="material" value="vegan"> Vegan Eco-Leather
-                            </label>
                         </div>
 
                         <div class="filter-group">
@@ -239,6 +284,13 @@
                             <h4>On Sale</h4>
                             <label class="filter-option">
                                 <input type="checkbox" name="sale" value="true"> Sale Items Only
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Special Offers</h4>
+                            <label class="filter-option">
+                                <input type="checkbox" name="christmas" value="true"> Christmas Collection
                             </label>
                         </div>
 
@@ -290,16 +342,112 @@
                 <h1 class="page-header">Your Shopping Bag</h1>
                 
                 <div class="cart-layout">
-                    <div class="cart-items-list">
-                        <div id="cart-items-container">
+                    <div class="cart-items-container">
+                        <div class="cart-header">
+                            <h3>Items in your bag</h3>
+                            <span id="item-count">0 items</span>
+                        </div>
+                        <div class="cart-items-list" id="cart-items-container">
                             <!-- Cart items will be loaded by JavaScript -->
                         </div>
                     </div>
                     
-                    <div class="cart-summary-box">
-                        <h3>Order Summary</h3>
-                        <div id="cart-summary">
-                            <!-- Cart summary will be loaded by JavaScript -->
+                    <div class="cart-summary-container">
+                        <div class="cart-summary-box">
+                            <h3>Order Summary</h3>
+                            <div id="cart-summary">
+                                <!-- Cart summary will be loaded by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="coupon-section">
+                            <h4>Apply Coupon</h4>
+                            <div class="coupon-input">
+                                <input type="text" placeholder="Enter coupon code" id="coupon-code">
+                                <button class="btn btn-secondary" id="apply-coupon">Apply</button>
+                            </div>
+                            <div class="available-coupons">
+                                <p>Available coupons:</p>
+                                <div class="coupon-tag" data-code="XMAS2023">XMAS2023 - 10% off</div>
+                                <div class="coupon-tag" data-code="WELCOME10">WELCOME10 - 10% off first order</div>
+                            </div>
+                        </div>
+                        
+                        <div class="gift-options">
+                            <h4>Gift Options</h4>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="gift-wrapping">
+                                <span>Add luxury gift wrapping (+Ksh 500)</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="gift-message">
+                                <span>Add gift message (free)</span>
+                            </label>
+                            <div class="gift-message-input" id="gift-message-input" style="display: none;">
+                                <textarea placeholder="Enter your gift message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Ideas Page -->
+        <section id="gift-page" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="gift-header">
+                    <h1>Perfect Gift Ideas</h1>
+                    <p>Find the perfect bag for every special occasion</p>
+                </div>
+                
+                <div class="gift-categories">
+                    <div class="gift-category">
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&h=400&fit=crop" alt="Birthday Gifts">
+                        <div class="gift-category-content">
+                            <h3>Birthday Gifts</h3>
+                            <p>Celebrate their special day with a timeless accessory</p>
+                            <a href="#collections-page" class="btn btn-primary" onclick="loadPage('collections')">Shop Birthday Collection</a>
+                        </div>
+                    </div>
+                    
+                    <div class="gift-category">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=600&h=400&fit=crop" alt="Anniversary Gifts">
+                        <div class="gift-category-content">
+                            <h3>Anniversary Gifts</h3>
+                            <p>Mark your milestones with elegance and style</p>
+                            <a href="#collections-page" class="btn btn-primary" onclick="loadPage('collections')">Shop Anniversary Collection</a>
+                        </div>
+                    </div>
+                    
+                    <div class="gift-category">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=600&h=400&fit=crop" alt="Christmas Gifts">
+                        <div class="gift-category-content">
+                            <h3>Christmas Gifts</h3>
+                            <p>Spread holiday cheer with our special collection</p>
+                            <a href="#collections-page" class="btn btn-primary" onclick="loadPage('collections', 'sale')">Shop Christmas Collection</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gift-card-promo">
+                    <h2>Not Sure What to Choose?</h2>
+                    <p>Our gift cards are the perfect solution. Let them pick their favorite bag!</p>
+                    <div class="gift-card-amounts">
+                        <div class="gift-card-option">
+                            <h4>Ksh 5,000</h4>
+                            <button class="btn btn-secondary">Purchase</button>
+                        </div>
+                        <div class="gift-card-option">
+                            <h4>Ksh 10,000</h4>
+                            <button class="btn btn-secondary">Purchase</button>
+                        </div>
+                        <div class="gift-card-option">
+                            <h4>Ksh 15,000</h4>
+                            <button class="btn btn-secondary">Purchase</button>
+                        </div>
+                        <div class="gift-card-option">
+                            <h4>Ksh 20,000</h4>
+                            <button class="btn btn-secondary">Purchase</button>
                         </div>
                     </div>
                 </div>
@@ -425,13 +573,13 @@
                         <li><a href="#collections-page" onclick="loadPage('collections', 'totes')">Tote Bags</a></li>
                         <li><a href="#collections-page" onclick="loadPage('collections', 'crossbody')">Crossbody Bags</a></li>
                         <li><a href="#collections-page" onclick="loadPage('collections', 'clutches')">Clutch Bags</a></li>
-                        <li><a href="#collections-page" onclick="loadPage('collections', 'backpacks')">Backpacks</a></li>
+                        <li><a href="#gift-page" onclick="loadPage('gift')">Gift Ideas</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Support</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#contact-page" onclick="loadPage('contact')">Contact Us</a></li>
                         <li><a href="#">Shipping & Returns</a></li>
                         <li><a href="#">Size Guide</a></li>
                         <li><a href="#">Care Instructions</a></li>
@@ -440,7 +588,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Newsletter</h3>
-                    <p>Subscribe to get special offers, free giveaways, and new collection launches.</p>
+                    <p>Subscribe to get special offers and new collection launches.</p>
                     <div class="footer-newsletter">
                         <input type="email" placeholder="Your email address">
                         <button class="btn btn-primary">Subscribe</button>
@@ -448,7 +596,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Bags By Eve. All rights reserved.</p>
+                <p>&copy; 2023 Bags By Eve. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
             </div>
         </div>
     </footer>
