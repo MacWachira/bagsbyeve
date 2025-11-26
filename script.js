@@ -1,142 +1,6 @@
-// script.js - Enhanced for Bags By Love Website
+// Enhanced JavaScript for Bags By Eve Website
 
-// Language translations
-const translations = {
-    en: {
-        // Header & Navigation
-        home: "Home",
-        collections: "Collections",
-        newArrivals: "New Arrivals",
-        bestsellers: "Bestsellers",
-        sale: "Sale",
-        about: "About",
-        contact: "Contact",
-        cart: "Cart",
-        search: "Search",
-        account: "Account",
-        
-        // Hero Section
-        heroTitle: "Elegance Redefined",
-        heroSubtitle: "Discover our exclusive collection of handcrafted bags designed for the modern woman",
-        shopWhatsApp: "Shop on WhatsApp",
-        viewCart: "View Cart",
-        
-        // Sections
-        specialSale: "Special Sale",
-        limitedTime: "Limited time offers on selected items",
-        featuredCollections: "Featured Collections",
-        popularDesigns: "Our most popular and loved designs",
-        whatCustomersSay: "What Our Customers Say",
-        realReviews: "Real reviews from real customers",
-        joinNewsletter: "Join Our Newsletter",
-        newsletterSubtitle: "Subscribe to receive updates on new collections, exclusive offers, and styling tips",
-        
-        // Features
-        premiumQuality: "Premium Quality",
-        premiumDesc: "Each bag is crafted with the finest materials and attention to detail",
-        freeShipping: "Free Shipping",
-        shippingDesc: "Enjoy complimentary shipping on all orders over Ksh 3,000",
-        easyReturns: "Easy Returns",
-        returnsDesc: "Not satisfied? Return within 30 days for a full refund",
-        ethicallyMade: "Ethically Made",
-        ethicalDesc: "Our products are ethically sourced and manufactured",
-        
-        // Buttons & Actions
-        addToCart: "Add to Cart",
-        quickView: "Quick View",
-        shopNow: "Shop Now",
-        explore: "Explore",
-        subscribe: "Subscribe",
-        sendMessage: "Send Message",
-        continueShopping: "Continue Shopping",
-        checkout: "Checkout",
-        
-        // Product Categories
-        totes: "Totes",
-        crossbody: "Crossbody Bags",
-        clutches: "Clutches",
-        backpacks: "Backpacks",
-        
-        // Footer
-        madeForModernWoman: "MADE FOR THE MODERN WOMAN",
-        footerDescription: "Creating elegant, functional bags for the contemporary woman who values style and substance",
-        shop: "Shop",
-        allCollections: "All Collections",
-        support: "Support",
-        shippingInfo: "Shipping Info",
-        returnsExchanges: "Returns & Exchanges",
-        faq: "FAQ",
-        careInstructions: "Care Instructions"
-    },
-    sw: {
-        // Header & Navigation
-        home: "Nyumbani",
-        collections: "Mkusanyiko",
-        newArrivals: "Vipya",
-        bestsellers: "Vinavyouzwa Zaidi",
-        sale: "Punguzo",
-        about: "Kuhusu",
-        contact: "Wasiliana",
-        cart: "Mkokoteni",
-        search: "Tafuta",
-        account: "Akaunti",
-        
-        // Hero Section
-        heroTitle: "Urembo Ulioboreshwa",
-        heroSubtitle: "Gundua mkusanyiko wetu wa kipekee wa mikoba iliyotengenezwa kwa mikono iliyoundwa kwa mwanamke wa kisasa",
-        shopWhatsApp: "Nunua kupitia WhatsApp",
-        viewCart: "Angalia Mkokoteni",
-        
-        // Sections
-        specialSale: "Punguzo Maalum",
-        limitedTime: "Ofa za muda mfupi kwenye vitu vilivyochaguliwa",
-        featuredCollections: "Mikusanyiko Maarufu",
-        popularDesigns: "Miundo yetu maarufu na inayopendwa zaidi",
-        whatCustomersSay: "Wateja Wetu Wasemaje",
-        realReviews: "Ukaguzi halisi kutoka kwa wateja halisi",
-        joinNewsletter: "Jiunge na Jarida Letu",
-        newsletterSubtitle: "Jiandikishe kupokea visasisho kuhusu mkusanyiko mpya, ofa za kipekee, na vidokezo vya mitindo",
-        
-        // Features
-        premiumQuality: "Ubora wa Hali ya Juu",
-        premiumDesc: "Kila mfuko hutengenezwa kwa nyenzo bora zaidi na umakini wa kina",
-        freeShipping: "Usafirishaji Bure",
-        shippingDesc: "Furahia usafirishaji wa bure kwa maagizo yote juu ya Ksh 3,000",
-        easyReturns: "Kurejeshea Rahisi",
-        returnsDesc: "Hauradhishwa? Rudisha ndani ya siku 30 kwa fidia kamili",
-        ethicallyMade: "Imetengenezwa Kimaadili",
-        ethicalDesc: "Bidhaa zetu zinapatikana kimaadili na kutengenezwa",
-        
-        // Buttons & Actions
-        addToCart: "Ongeza kwenye Mkokoteni",
-        quickView: "Angalia Haraka",
-        shopNow: "Nunua Sasa",
-        explore: "Chunguza",
-        subscribe: "Jiandikishe",
-        sendMessage: "Tuma Ujumbe",
-        continueShopping: "Endelea Kununua",
-        checkout: "Maliza",
-        
-        // Product Categories
-        totes: "Mikoba",
-        crossbody: "Mikoba ya Mabega",
-        clutches: "Mikoba ya Mkono",
-        backpacks: "Mikoba ya Mgongoni",
-        
-        // Footer
-        madeForModernWoman: "IMETENGENEZWA KWA MWANAMKE WA KISASA",
-        footerDescription: "Kuunda mikoba ya kifahari, inayofanya kazi kwa mwanamke wa kisasa anayethamini mtindo na dhamira",
-        shop: "Nunua",
-        allCollections: "Mikusanyiko Yote",
-        support: "Msaada",
-        shippingInfo: "Maelezo ya Usafirishaji",
-        returnsExchanges: "Kurejeshea na Kubadilishana",
-        faq: "Maswali Yanayoulizwa Mara Kwa Mara",
-        careInstructions: "Maagizo ya Utunzaji"
-    }
-};
-
-// Product Data
+// Enhanced Product Data with more categories and items
 const products = {
     "totes": [
         {
@@ -144,282 +8,282 @@ const products = {
             name: "Classic Leather Tote",
             price: 4500,
             originalPrice: 5200,
-            image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Spacious and stylish leather tote perfect for work or weekend outings.",
+            image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Spacious and stylish leather tote perfect for work or weekend outings. Features multiple compartments and premium leather construction.",
             category: "totes",
             featured: true,
-            sale: false
+            sale: false,
+            features: ["Genuine Leather", "Multiple Compartments", "Adjustable Strap", "Water Resistant"],
+            colors: ["Brown", "Black", "Tan"],
+            sizes: ["Medium", "Large"]
         },
         {
             id: 2,
             name: "Canvas Weekender Tote",
             price: 3800,
             originalPrice: 4500,
-            image: "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Durable canvas tote with leather accents, ideal for travel or daily use.",
+            image: "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Durable canvas tote with leather accents, ideal for travel or daily use. Perfect for carrying all your essentials in style.",
             category: "totes",
             featured: false,
-            sale: true
-        },
-        {
-            id: 3,
-            name: "Structured Work Tote",
-            price: 5200,
-            originalPrice: 5200,
-            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Professional tote with multiple compartments for organization.",
-            category: "totes",
-            featured: true,
-            sale: false
-        },
-        {
-            id: 4,
-            name: "Minimalist Leather Tote",
-            price: 4200,
-            originalPrice: 5000,
-            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Sleek and simple design with premium leather construction.",
-            category: "totes",
-            featured: false,
-            sale: true
+            sale: true,
+            features: ["Durable Canvas", "Leather Accents", "Zipper Closure", "Interior Pocket"],
+            colors: ["Navy", "Beige", "Olive"],
+            sizes: ["Large"]
         }
     ],
     "crossbody": [
         {
-            id: 5,
+            id: 3,
             name: "Leather Crossbody Bag",
             price: 3200,
             originalPrice: 3800,
-            image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Compact crossbody with adjustable strap, perfect for hands-free convenience.",
+            image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Compact crossbody with adjustable strap, perfect for hands-free convenience. Ideal for evenings out or daily errands.",
             category: "crossbody",
             featured: true,
-            sale: false
-        },
+            sale: false,
+            features: ["Adjustable Strap", "Multiple Pockets", "Magnetic Closure", "Lightweight"],
+            colors: ["Black", "Brown", "Burgundy"],
+            sizes: ["Small", "Medium"]
+        }
+    ],
+    "clutches": [
         {
-            id: 6,
-            name: "Vintage Inspired Crossbody",
+            id: 4,
+            name: "Evening Sparkle Clutch",
             price: 2800,
             originalPrice: 3500,
-            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Retro design with modern functionality and multiple pockets.",
-            category: "crossbody",
-            featured: false,
-            sale: true
-        },
+            image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Glamorous clutch with sequin detailing for special occasions. Makes a statement at any event.",
+            category: "clutches",
+            featured: true,
+            sale: false,
+            features: ["Sequin Detailing", "Wrist Strap", "Compact Size", "Elegant Design"],
+            colors: ["Gold", "Silver", "Black"],
+            sizes: ["One Size"]
+        }
+    ],
+    "backpacks": [
+        {
+            id: 5,
+            name: "Leather Laptop Backpack",
+            price: 5800,
+            originalPrice: 6500,
+            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Professional backpack with padded laptop compartment. Combines style with functionality for the modern professional.",
+            category: "backpacks",
+            featured: true,
+            sale: false,
+            features: ["Padded Laptop Sleeve", "Multiple Compartments", "Water Bottle Pocket", "Ergonomic Straps"],
+            colors: ["Black", "Brown", "Navy"],
+            sizes: ["15-inch", "17-inch"]
+        }
+    ],
+    "shoulder-bags": [
+        {
+            id: 6,
+            name: "Structured Shoulder Bag",
+            price: 4200,
+            originalPrice: 4900,
+            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Elegant shoulder bag with structured design. Perfect for both professional and casual settings.",
+            category: "shoulder-bags",
+            featured: true,
+            sale: true,
+            features: ["Structured Design", "Top Handle", "Detachable Strap", "Interior Organization"],
+            colors: ["Camel", "Black", "Red"],
+            sizes: ["Medium"]
+        }
+    ],
+    "bucket-bags": [
         {
             id: 7,
-            name: "Quilted Crossbody Bag",
-            price: 3800,
-            originalPrice: 4500,
-            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Elegant quilted design with chain and leather strap options.",
-            category: "crossbody",
-            featured: true,
-            sale: false
-        },
+            name: "Leather Bucket Bag",
+            price: 3500,
+            originalPrice: 4200,
+            image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Trendy bucket bag with drawstring closure. Combines bohemian style with modern functionality.",
+            category: "bucket-bags",
+            featured: false,
+            sale: true,
+            features: ["Drawstring Closure", "Adjustable Strap", "Spacious Interior", "Magnetic Pocket"],
+            colors: ["Tan", "Black", "Olive"],
+            sizes: ["Medium"]
+        }
+    ],
+    "mini-bags": [
         {
             id: 8,
             name: "Mini Crossbody Purse",
             price: 2500,
             originalPrice: 3000,
-            image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Small but mighty, fits essentials with style.",
-            category: "crossbody",
-            featured: false,
-            sale: true
-        }
-    ],
-    "clutches": [
-        {
-            id: 9,
-            name: "Evening Sparkle Clutch",
-            price: 2800,
-            originalPrice: 3500,
-            image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Glamorous clutch with sequin detailing for special occasions.",
-            category: "clutches",
+            image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            description: "Small but mighty, fits essentials with style. Perfect for minimalists who value both form and function.",
+            category: "mini-bags",
             featured: true,
-            sale: false
-        },
-        {
-            id: 10,
-            name: "Leather Wristlet Clutch",
-            price: 2200,
-            originalPrice: 2800,
-            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Compact clutch with wrist strap for easy carrying.",
-            category: "clutches",
-            featured: false,
-            sale: true
-        },
-        {
-            id: 11,
-            name: "Envelope Clutch",
-            price: 3200,
-            originalPrice: 3800,
-            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Sleek envelope design with magnetic closure.",
-            category: "clutches",
-            featured: true,
-            sale: false
-        },
-        {
-            id: 12,
-            name: "Beaded Evening Clutch",
-            price: 3500,
-            originalPrice: 4200,
-            image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Hand-beaded clutch with intricate design details.",
-            category: "clutches",
-            featured: false,
-            sale: true
-        }
-    ],
-    "backpacks": [
-        {
-            id: 13,
-            name: "Leather Laptop Backpack",
-            price: 5800,
-            originalPrice: 6500,
-            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Professional backpack with padded laptop compartment.",
-            category: "backpacks",
-            featured: true,
-            sale: false
-        },
-        {
-            id: 14,
-            name: "Mini Leather Backpack",
-            price: 4200,
-            originalPrice: 5000,
-            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Compact backpack perfect for day trips and casual outings.",
-            category: "backpacks",
-            featured: false,
-            sale: true
-        },
-        {
-            id: 15,
-            name: "Canvas Rucksack",
-            price: 3500,
-            originalPrice: 4200,
-            image: "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Durable canvas backpack with multiple pockets.",
-            category: "backpacks",
-            featured: true,
-            sale: false
-        },
-        {
-            id: 16,
-            name: "Convertible Backpack Purse",
-            price: 4800,
-            originalPrice: 5500,
-            image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Stylish backpack that converts to a handbag.",
-            category: "backpacks",
-            featured: false,
-            sale: true
+            sale: false,
+            features: ["Compact Size", "Adjustable Chain", "Card Slots", "Key Holder"],
+            colors: ["Pink", "Black", "White"],
+            sizes: ["Mini"]
         }
     ]
 };
 
-// Categories
+// Enhanced Categories
 const categories = [
     {
         id: "totes",
         name: "Totes",
         description: "Spacious and versatile bags for work, travel, and everyday use",
-        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        count: "12 products"
     },
     {
         id: "crossbody",
         name: "Crossbody Bags",
         description: "Hands-free convenience with style, perfect for active days",
-        image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+        image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        count: "8 products"
     },
     {
         id: "clutches",
         name: "Clutches",
         description: "Elegant evening bags for special occasions and nights out",
-        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        count: "6 products"
     },
     {
         id: "backpacks",
         name: "Backpacks",
         description: "Functional and fashionable bags for work, school, and travel",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        count: "10 products"
+    },
+    {
+        id: "shoulder-bags",
+        name: "Shoulder Bags",
+        description: "Classic shoulder carry bags with timeless appeal",
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        count: "9 products"
+    },
+    {
+        id: "bucket-bags",
+        name: "Bucket Bags",
+        description: "Trendy drawstring bags with bohemian inspiration",
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        count: "7 products"
+    },
+    {
+        id: "mini-bags",
+        name: "Mini Bags",
+        description: "Compact bags for essentials-only outings",
+        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        count: "5 products"
     }
 ];
 
-// Testimonials
+// Enhanced Testimonials
 const testimonials = [
     {
         name: "Sarah M.",
         location: "Nairobi",
-        text: "I absolutely love my Bags By Love tote! The quality is exceptional and it's so versatile. I use it for work, shopping, and even as a weekend bag. The leather has held up beautifully over months of daily use.",
-        rating: 5
+        text: "I absolutely love my Bags By Eve tote! The quality is exceptional and it's so versatile. The leather has held up beautifully over months of daily use.",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
     },
     {
         name: "Grace W.",
         location: "Mombasa",
-        text: "The customer service at Bags By Love is outstanding! They helped me choose the perfect clutch for my wedding and even did a special customization. I felt so special carrying it on my big day.",
-        rating: 5
+        text: "The customer service is outstanding! They helped me choose the perfect clutch for my wedding and even did a special customization.",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
     },
     {
         name: "Linda K.",
         location: "Kisumu",
-        text: "I've purchased three bags from Bags By Love and each one has exceeded my expectations. The attention to detail and craftsmanship is remarkable. These bags are definitely worth the investment!",
-        rating: 5
+        text: "I've purchased three bags and each one has exceeded my expectations. The attention to detail and craftsmanship is remarkable!",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+    }
+];
+
+// Instagram Posts
+const instagramPosts = [
+    {
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        likes: "2.4k",
+        comments: "124"
+    },
+    {
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        likes: "1.8k",
+        comments: "89"
+    },
+    {
+        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        likes: "3.2k",
+        comments: "156"
+    },
+    {
+        image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        likes: "2.1k",
+        comments: "98"
+    },
+    {
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        likes: "1.9k",
+        comments: "112"
+    },
+    {
+        image: "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        likes: "2.7k",
+        comments: "134"
     }
 ];
 
 // Cart functionality
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(localStorage.getItem('bagsByEveCart')) || [];
 
 // Language and Theme State
-let currentLanguage = localStorage.getItem('language') || 'en';
-let currentTheme = localStorage.getItem('theme') || 'light';
+let currentLanguage = localStorage.getItem('bagsByEveLanguage') || 'en';
+let currentTheme = localStorage.getItem('bagsByEveTheme') || 'light';
 
 // DOM Elements
 const pages = document.querySelectorAll('.page');
-const navLinks = document.querySelectorAll('.nav-links a, .footer-links a, .back-button, .logo');
+const navLinks = document.querySelectorAll('[data-page]');
 const cartIcon = document.getElementById('cart-icon');
 const cartCount = document.querySelector('.cart-count');
 const floatingCart = document.getElementById('floating-cart');
 const cartCountFloating = document.querySelector('.cart-count-floating');
-const cartContent = document.getElementById('cart-content');
-const cartTotalAmount = document.getElementById('cart-total-amount');
 const salePopup = document.getElementById('sale-popup');
 const closePopup = document.getElementById('close-popup');
 const shopSaleItem = document.getElementById('shop-sale-item');
-const viewCartBtn = document.getElementById('view-cart');
-const checkoutWhatsApp = document.getElementById('checkout-whatsapp');
 const themeToggle = document.getElementById('theme-toggle');
-const languageBtn = document.getElementById('language-btn');
-const languageOptions = document.querySelectorAll('.language-option');
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+const exploreCollectionsBtn = document.getElementById('explore-collections');
 
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {
-    // Set initial language and theme
+    initializeWebsite();
+    setupEventListeners();
+    loadHomePageContent();
+    
+    // Show sale popup after 3 seconds
+    setTimeout(() => {
+        showSalePopup();
+    }, 3000);
+});
+
+// Initialize website settings
+function initializeWebsite() {
     setLanguage(currentLanguage);
     setTheme(currentTheme);
-    
-    // Show sale popup after 2 seconds
-    setTimeout(() => {
-        salePopup.style.display = 'flex';
-    }, 2000);
-
-    // Load initial content
-    loadFeaturedProducts();
-    loadSaleProducts();
-    loadCategories();
-    loadTestimonials();
     updateCartCount();
-
-    // Set up event listeners
-    setupEventListeners();
-});
+    initializeParticles();
+    initializeScrollAnimations();
+}
 
 // Set up all event listeners
 function setupEventListeners() {
@@ -429,130 +293,97 @@ function setupEventListeners() {
             e.preventDefault();
             const pageId = this.getAttribute('data-page');
             showPage(pageId);
+            
+            // Close mobile menu if open
+            if (mobileNav.classList.contains('active')) {
+                toggleMobileMenu();
+            }
         });
     });
 
-    // Cart icon
+    // Cart functionality
     cartIcon.addEventListener('click', function(e) {
         e.preventDefault();
         showPage('cart');
     });
 
-    // Floating cart
     floatingCart.addEventListener('click', function() {
         showPage('cart');
     });
 
-    // View cart button
-    viewCartBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        showPage('cart');
-    });
-
-    // Close popup
-    closePopup.addEventListener('click', function() {
-        salePopup.style.display = 'none';
-    });
-
-    // Shop sale item from popup
+    // Popup functionality
+    closePopup.addEventListener('click', closeSalePopup);
     shopSaleItem.addEventListener('click', function(e) {
         e.preventDefault();
-        salePopup.style.display = 'none';
+        closeSalePopup();
         showPage('sale');
     });
 
-    // Checkout via WhatsApp
-    checkoutWhatsApp.addEventListener('click', function(e) {
-        e.preventDefault();
-        checkoutViaWhatsApp();
-    });
-
     // Theme toggle
-    themeToggle.addEventListener('click', function() {
-        toggleTheme();
-    });
+    themeToggle.addEventListener('click', toggleTheme);
 
-    // Language switcher
-    languageOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            setLanguage(lang);
+    // Mobile menu
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+    // Explore collections button
+    if (exploreCollectionsBtn) {
+        exploreCollectionsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPage('collections');
         });
-    });
+    }
 
     // Newsletter form
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
-            this.reset();
-        });
+        newsletterForm.addEventListener('submit', handleNewsletterSubmit);
     }
 
     // Contact form
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you within 24 hours.');
-            this.reset();
-        });
+        contactForm.addEventListener('submit', handleContactSubmit);
     }
+
+    // Filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            filterProducts(filter);
+            
+            // Update active state
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Close modal when clicking outside
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            closeModal(e.target);
+        }
+    });
+
+    // Keyboard events
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllModals();
+        }
+    });
 }
 
 // Set language
 function setLanguage(lang) {
     currentLanguage = lang;
-    localStorage.setItem('language', lang);
-    
-    // Update language button text
-    const langBtnText = languageBtn.querySelector('span');
-    langBtnText.textContent = lang === 'en' ? 'EN' : 'SW';
-    
-    // Update all translatable elements
+    localStorage.setItem('bagsByEveLanguage', lang);
     updateTextContent();
-}
-
-// Update all text content based on current language
-function updateTextContent() {
-    const t = translations[currentLanguage];
-    
-    // Update navigation
-    document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (t[key]) {
-            element.textContent = t[key];
-        }
-    });
-    
-    // Update buttons and other elements
-    const elementsToTranslate = {
-        '#view-cart': 'viewCart',
-        '.btn-whatsapp': 'shopWhatsApp',
-        '.newsletter-form button': 'subscribe',
-        '#checkout-whatsapp': 'checkout',
-        '.cart-actions .btn-outline': 'continueShopping'
-    };
-    
-    for (const selector in elementsToTranslate) {
-        const element = document.querySelector(selector);
-        if (element && t[elementsToTranslate[selector]]) {
-            element.textContent = t[elementsToTranslate[selector]];
-        }
-    }
-}
-
-// Toggle theme
-function toggleTheme() {
-    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-    localStorage.setItem('theme', currentTheme);
-    setTheme(currentTheme);
 }
 
 // Set theme
 function setTheme(theme) {
+    currentTheme = theme;
+    localStorage.setItem('bagsByEveTheme', theme);
     document.documentElement.setAttribute('data-theme', theme);
     
     // Update theme toggle icon
@@ -560,261 +391,192 @@ function setTheme(theme) {
     icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
 }
 
-// Show specific page and hide others
+// Toggle theme
+function toggleTheme() {
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+}
+
+// Toggle mobile menu
+function toggleMobileMenu() {
+    mobileMenuToggle.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    
+    // Animate hamburger icon
+    const spans = mobileMenuToggle.querySelectorAll('span');
+    if (mobileNav.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+    } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+}
+
+// Show specific page
 function showPage(pageId) {
+    // Hide all pages
     pages.forEach(page => {
         page.classList.remove('active');
     });
     
+    // Show target page
     const targetPage = document.getElementById(pageId);
     if (targetPage) {
         targetPage.classList.add('active');
         
         // Update active nav link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('data-page') === pageId) {
-                link.classList.add('active');
-            }
-        });
+        updateActiveNavLink(pageId);
         
         // Load page-specific content
-        switch(pageId) {
-            case 'home':
-                loadFeaturedProducts();
-                loadSaleProducts();
-                break;
-            case 'collections':
-                loadCategories();
-                break;
-            case 'new-arrivals':
-                loadNewArrivals();
-                break;
-            case 'bestsellers':
-                loadBestsellers();
-                break;
-            case 'sale':
-                loadSalePage();
-                break;
-            case 'cart':
-                loadCart();
-                break;
-        }
+        loadPageContent(pageId);
         
         // Scroll to top
         window.scrollTo(0, 0);
     }
 }
 
-// Load featured products on home page
-function loadFeaturedProducts() {
-    const featuredContainer = document.querySelector('#home .featured-section .collections');
-    if (!featuredContainer) return;
-    
-    featuredContainer.innerHTML = '';
-    
-    // Get all featured products
-    const featuredProducts = [];
-    Object.values(products).forEach(category => {
-        category.forEach(product => {
-            if (product.featured) {
-                featuredProducts.push(product);
-            }
-        });
-    });
-    
-    // Display up to 6 featured products
-    featuredProducts.slice(0, 6).forEach(product => {
-        const productCard = createProductCard(product);
-        featuredContainer.appendChild(productCard);
+// Update active navigation link
+function updateActiveNavLink(pageId) {
+    const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
+    allNavLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-page') === pageId) {
+            link.classList.add('active');
+        }
     });
 }
 
-// Load sale products on home page
-function loadSaleProducts() {
-    const saleContainer = document.querySelector('#home .sale-section .collections');
-    if (!saleContainer) return;
-    
-    saleContainer.innerHTML = '';
-    
-    // Get all sale products
-    const saleProducts = [];
-    Object.values(products).forEach(category => {
-        category.forEach(product => {
-            if (product.sale) {
-                saleProducts.push(product);
-            }
-        });
-    });
-    
-    // Display up to 4 sale products
-    saleProducts.slice(0, 4).forEach(product => {
-        const productCard = createProductCard(product);
-        saleContainer.appendChild(productCard);
-    });
+// Load content for specific page
+function loadPageContent(pageId) {
+    switch(pageId) {
+        case 'home':
+            loadHomePageContent();
+            break;
+        case 'collections':
+            loadCollectionsPage();
+            break;
+        case 'new-arrivals':
+            loadNewArrivalsPage();
+            break;
+        case 'bestsellers':
+            loadBestsellersPage();
+            break;
+        case 'sale':
+            loadSalePage();
+            break;
+        case 'about':
+            loadAboutPage();
+            break;
+        case 'contact':
+            loadContactPage();
+            break;
+        case 'cart':
+            loadCartPage();
+            break;
+    }
 }
 
-// Load categories on collections page
-function loadCategories() {
-    const categoryContainer = document.querySelector('.category-grid');
-    if (!categoryContainer) return;
-    
-    categoryContainer.innerHTML = '';
-    
-    categories.forEach(category => {
-        const categoryCard = document.createElement('div');
-        categoryCard.className = 'category-card';
-        categoryCard.innerHTML = `
-            <div class="category-image">
-                <img src="${category.image}" alt="${category.name}">
-                <div class="category-overlay">
-                    <h3>${category.name}</h3>
-                    <p>${category.description}</p>
-                    <a href="#" class="btn btn-outline" data-category="${category.id}">${translations[currentLanguage].explore}</a>
-                </div>
-            </div>
-        `;
-        
-        categoryContainer.appendChild(categoryCard);
-        
-        // Add event listener to explore button
-        const exploreBtn = categoryCard.querySelector('.btn');
-        exploreBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const categoryId = this.getAttribute('data-category');
-            showCategoryProducts(categoryId);
-        });
-    });
+// Load home page content
+function loadHomePageContent() {
+    loadFeaturedCollections();
+    loadNewArrivals();
+    loadCategories();
+    loadTestimonials();
+    loadInstagramPosts();
 }
 
-// Show products for a specific category
-function showCategoryProducts(categoryId) {
-    // Create a temporary page for category products
-    const categoryPage = document.createElement('div');
-    categoryPage.id = 'category-products';
-    categoryPage.className = 'page active';
-    categoryPage.innerHTML = `
-        <div class="container page-content">
-            <a href="#" class="back-button" data-page="collections">
-                <i class="fas fa-arrow-left"></i> ${translations[currentLanguage].backToCollections}
-            </a>
-            <div class="section-title">
-                <h2>${categories.find(c => c.id === categoryId).name}</h2>
-                <p>${categories.find(c => c.id === categoryId).description}</p>
-            </div>
-            <div class="collections">
-                <!-- Products will be populated here -->
-            </div>
-        </div>
-    `;
+// Load featured collections
+function loadFeaturedCollections() {
+    const container = document.querySelector('.collections-grid');
+    if (!container) return;
     
-    // Add to DOM
-    document.body.appendChild(categoryPage);
+    container.innerHTML = '';
     
-    // Hide other pages
-    pages.forEach(page => {
-        page.classList.remove('active');
-    });
+    const featuredProducts = getFeaturedProducts().slice(0, 6);
     
-    // Load products for this category
-    const productsContainer = categoryPage.querySelector('.collections');
-    products[categoryId].forEach(product => {
+    featuredProducts.forEach(product => {
         const productCard = createProductCard(product);
-        productsContainer.appendChild(productCard);
-    });
-    
-    // Add event listener to back button
-    const backButton = categoryPage.querySelector('.back-button');
-    backButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.body.removeChild(categoryPage);
-        showPage('collections');
+        container.appendChild(productCard);
     });
 }
 
 // Load new arrivals
 function loadNewArrivals() {
-    const newArrivalsContainer = document.querySelector('#new-arrivals .collections');
-    if (!newArrivalsContainer) return;
+    const container = document.querySelector('.products-carousel');
+    if (!container) return;
     
-    newArrivalsContainer.innerHTML = '';
+    container.innerHTML = '';
     
-    // Get all products (for demo, we'll use a mix)
-    const allProducts = [];
-    Object.values(products).forEach(category => {
-        allProducts.push(...category);
+    // Get all products and take the first 8 as new arrivals
+    const allProducts = getAllProducts().slice(0, 8);
+    
+    allProducts.forEach(product => {
+        const productCard = createProductCard(product);
+        container.appendChild(productCard);
     });
     
-    // Display products (for demo, we'll show the first 8)
-    allProducts.slice(0, 8).forEach(product => {
-        const productCard = createProductCard(product);
-        newArrivalsContainer.appendChild(productCard);
+    // Initialize carousel if needed
+    initializeCarousel();
+}
+
+// Load categories
+function loadCategories() {
+    const container = document.querySelector('.categories-grid');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    categories.forEach(category => {
+        const categoryCard = createCategoryCard(category);
+        container.appendChild(categoryCard);
     });
 }
 
-// Load bestsellers
-function loadBestsellers() {
-    const bestsellersContainer = document.querySelector('#bestsellers .collections');
-    if (!bestsellersContainer) return;
+// Load testimonials
+function loadTestimonials() {
+    const container = document.querySelector('.testimonials-grid');
+    if (!container) return;
     
-    bestsellersContainer.innerHTML = '';
+    container.innerHTML = '';
     
-    // Get featured products as bestsellers for demo
-    const bestsellers = [];
-    Object.values(products).forEach(category => {
-        category.forEach(product => {
-            if (product.featured) {
-                bestsellers.push(product);
-            }
-        });
-    });
-    
-    // Display bestsellers
-    bestsellers.forEach(product => {
-        const productCard = createProductCard(product);
-        bestsellersContainer.appendChild(productCard);
+    testimonials.forEach(testimonial => {
+        const testimonialCard = createTestimonialCard(testimonial);
+        container.appendChild(testimonialCard);
     });
 }
 
-// Load sale page
-function loadSalePage() {
-    const saleContainer = document.querySelector('#sale .collections');
-    if (!saleContainer) return;
+// Load Instagram posts
+function loadInstagramPosts() {
+    const container = document.querySelector('.instagram-grid');
+    if (!container) return;
     
-    saleContainer.innerHTML = '';
+    container.innerHTML = '';
     
-    // Get all sale products
-    const saleProducts = [];
-    Object.values(products).forEach(category => {
-        category.forEach(product => {
-            if (product.sale) {
-                saleProducts.push(product);
-            }
-        });
-    });
-    
-    // Display sale products (10-12 as requested)
-    saleProducts.slice(0, 12).forEach(product => {
-        const productCard = createProductCard(product);
-        saleContainer.appendChild(productCard);
+    instagramPosts.forEach(post => {
+        const postElement = createInstagramPost(post);
+        container.appendChild(postElement);
     });
 }
 
-// Create product card HTML
+// Create product card
 function createProductCard(product) {
-    const productCard = document.createElement('div');
-    productCard.className = 'product-card';
-    
-    const discount = product.originalPrice ? 
-        Math.round((1 - product.price / product.originalPrice) * 100) : 0;
-    
-    productCard.innerHTML = `
+    const card = document.createElement('div');
+    card.className = 'product-card fade-in';
+    card.innerHTML = `
         <div class="product-image">
-            <img src="${product.image}" alt="${product.name}">
-            ${product.sale ? `<div class="sale-badge">${discount}% OFF</div>` : ''}
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            ${product.sale ? '<div class="product-badge">Sale</div>' : ''}
+            ${product.featured ? '<div class="product-badge" style="background: var(--secondary); color: var(--black);">Featured</div>' : ''}
             <div class="product-overlay">
-                <button class="btn btn-primary quick-view" data-product="${product.id}">${translations[currentLanguage].quickView}</button>
-                <button class="btn btn-outline add-to-cart" data-product="${product.id}">${translations[currentLanguage].addToCart}</button>
+                <button class="btn btn-primary quick-view-btn" data-product="${product.id}">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+                <button class="btn btn-secondary add-to-cart-btn" data-product="${product.id}">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
             </div>
         </div>
         <div class="product-info">
@@ -822,88 +584,104 @@ function createProductCard(product) {
             <p class="product-description">${product.description}</p>
             <div class="product-price">
                 ${product.originalPrice && product.originalPrice > product.price ? 
-                    `<span class="original-price">Ksh ${product.originalPrice}</span>` : ''}
-                <span class="current-price">Ksh ${product.price}</span>
+                    `<span class="original-price">Ksh ${product.originalPrice.toLocaleString()}</span>` : ''}
+                <span class="current-price">Ksh ${product.price.toLocaleString()}</span>
+            </div>
+            <div class="product-actions">
+                <button class="btn btn-primary add-to-cart-btn" data-product="${product.id}">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </button>
+                <button class="btn btn-outline wishlist-btn" data-product="${product.id}">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
         </div>
     `;
     
     // Add event listeners
-    const addToCartBtn = productCard.querySelector('.add-to-cart');
-    addToCartBtn.addEventListener('click', function() {
-        addToCart(product);
-    });
+    const addToCartBtn = card.querySelector('.add-to-cart-btn');
+    addToCartBtn.addEventListener('click', () => addToCart(product));
     
-    const quickViewBtn = productCard.querySelector('.quick-view');
-    quickViewBtn.addEventListener('click', function() {
-        showQuickView(product);
-    });
+    const quickViewBtn = card.querySelector('.quick-view-btn');
+    quickViewBtn.addEventListener('click', () => showQuickView(product));
     
-    return productCard;
+    const wishlistBtn = card.querySelector('.wishlist-btn');
+    wishlistBtn.addEventListener('click', () => toggleWishlist(product));
+    
+    return card;
 }
 
-// Show quick view modal
-function showQuickView(product) {
-    // Create modal
-    const modal = document.createElement('div');
-    modal.className = 'modal quick-view-modal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <button class="close-modal"><i class="fas fa-times"></i></button>
-            <div class="modal-body">
-                <div class="product-image-large">
-                    <img src="${product.image}" alt="${product.name}">
+// Create category card
+function createCategoryCard(category) {
+    const card = document.createElement('div');
+    card.className = 'category-card fade-in';
+    card.innerHTML = `
+        <div class="category-image">
+            <img src="${category.image}" alt="${category.name}" loading="lazy">
+            <div class="category-overlay">
+                <h3>${category.name}</h3>
+                <p>${category.description}</p>
+                <span class="product-count">${category.count}</span>
+                <button class="btn btn-primary explore-category" data-category="${category.id}">
+                    Explore Collection
+                </button>
+            </div>
+        </div>
+    `;
+    
+    const exploreBtn = card.querySelector('.explore-category');
+    exploreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('collections');
+        // You could also filter the collections page by this category
+    });
+    
+    return card;
+}
+
+// Create testimonial card
+function createTestimonialCard(testimonial) {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card fade-in';
+    card.innerHTML = `
+        <div class="testimonial-content">
+            <div class="testimonial-text">"${testimonial.text}"</div>
+            <div class="testimonial-author">
+                <img src="${testimonial.image}" alt="${testimonial.name}" class="author-image">
+                <div class="author-info">
+                    <div class="author-name">${testimonial.name}</div>
+                    <div class="author-location">${testimonial.location}</div>
                 </div>
-                <div class="product-details">
-                    <h2>${product.name}</h2>
-                    <p class="product-description">${product.description}</p>
-                    <div class="product-price">
-                        ${product.originalPrice && product.originalPrice > product.price ? 
-                            `<span class="original-price">Ksh ${product.originalPrice}</span>` : ''}
-                        <span class="current-price">Ksh ${product.price}</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-primary add-to-cart-modal" data-product="${product.id}">${translations[currentLanguage].addToCart}</button>
-                        <button class="btn btn-outline">Save for Later</button>
-                    </div>
-                    <div class="product-features">
-                        <h3>Features</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Premium quality materials</li>
-                            <li><i class="fas fa-check"></i> Handcrafted with attention to detail</li>
-                            <li><i class="fas fa-check"></i> Durable construction</li>
-                            <li><i class="fas fa-check"></i> Functional design</li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="testimonial-rating">
+                ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+// Create Instagram post
+function createInstagramPost(post) {
+    const element = document.createElement('div');
+    element.className = 'instagram-post fade-in';
+    element.innerHTML = `
+        <div class="post-image">
+            <img src="${post.image}" alt="Instagram post" loading="lazy">
+            <div class="post-overlay">
+                <div class="post-stats">
+                    <span><i class="fas fa-heart"></i> ${post.likes}</span>
+                    <span><i class="fas fa-comment"></i> ${post.comments}</span>
                 </div>
             </div>
         </div>
     `;
     
-    // Add to DOM
-    document.body.appendChild(modal);
-    
-    // Add event listeners
-    const closeBtn = modal.querySelector('.close-modal');
-    closeBtn.addEventListener('click', function() {
-        document.body.removeChild(modal);
-    });
-    
-    const addToCartBtn = modal.querySelector('.add-to-cart-modal');
-    addToCartBtn.addEventListener('click', function() {
-        addToCart(product);
-        document.body.removeChild(modal);
-    });
-    
-    // Close modal when clicking outside
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            document.body.removeChild(modal);
-        }
-    });
+    return element;
 }
 
-// Add product to cart
+// Add to cart functionality
 function addToCart(product) {
     const existingItem = cart.find(item => item.id === product.id);
     
@@ -919,241 +697,128 @@ function addToCart(product) {
         });
     }
     
-    // Update localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-    
-    // Update cart count
+    // Update storage and UI
+    localStorage.setItem('bagsByEveCart', JSON.stringify(cart));
     updateCartCount();
-    
-    // Show confirmation
-    showNotification(`${product.name} added to cart!`);
+    showNotification(`${product.name} added to cart!`, 'success');
 }
 
-// Update cart count in header and floating cart
+// Update cart count
 function updateCartCount() {
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCount.textContent = totalItems;
-    cartCountFloating.textContent = totalItems;
+    if (cartCount) cartCount.textContent = totalItems;
+    if (cartCountFloating) cartCountFloating.textContent = totalItems;
     
-    // Show/hide floating cart based on cart items
-    if (totalItems > 0) {
-        floatingCart.classList.add('has-items');
-    } else {
-        floatingCart.classList.remove('has-items');
-    }
-}
-
-// Load cart page
-function loadCart() {
-    if (!cartContent) return;
-    
-    if (cart.length === 0) {
-        cartContent.innerHTML = `
-            <div class="empty-cart">
-                <i class="fas fa-shopping-bag"></i>
-                <h3>Your cart is empty</h3>
-                <p>Add some beautiful bags to your cart</p>
-                <a href="#" class="btn btn-primary" data-page="collections">${translations[currentLanguage].continueShopping}</a>
-            </div>
-        `;
-        
-        // Add event listener to shopping button
-        const shopBtn = cartContent.querySelector('.btn');
-        shopBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showPage('collections');
-        });
-        
-        // Hide cart summary
-        document.querySelector('.cart-summary').style.display = 'none';
-    } else {
-        cartContent.innerHTML = '';
-        
-        let total = 0;
-        
-        cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            
-            const cartItem = document.createElement('div');
-            cartItem.className = 'cart-item';
-            cartItem.innerHTML = `
-                <div class="cart-item-image">
-                    <img src="${item.image}" alt="${item.name}">
-                </div>
-                <div class="cart-item-details">
-                    <h3 class="cart-item-name">${item.name}</h3>
-                    <p class="cart-item-price">Ksh ${item.price}</p>
-                </div>
-                <div class="cart-item-quantity">
-                    <button class="quantity-btn minus" data-id="${item.id}">-</button>
-                    <span class="quantity">${item.quantity}</span>
-                    <button class="quantity-btn plus" data-id="${item.id}">+</button>
-                </div>
-                <div class="cart-item-total">
-                    <span>Ksh ${itemTotal}</span>
-                </div>
-                <button class="cart-item-remove" data-id="${item.id}">
-                    <i class="fas fa-trash"></i>
-                </button>
-            `;
-            
-            cartContent.appendChild(cartItem);
-        });
-        
-        // Update total
-        cartTotalAmount.textContent = `Ksh ${total}`;
-        
-        // Show cart summary
-        document.querySelector('.cart-summary').style.display = 'block';
-        
-        // Add event listeners to cart items
-        const minusBtns = document.querySelectorAll('.quantity-btn.minus');
-        const plusBtns = document.querySelectorAll('.quantity-btn.plus');
-        const removeBtns = document.querySelectorAll('.cart-item-remove');
-        
-        minusBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                updateCartItemQuantity(this.getAttribute('data-id'), -1);
-            });
-        });
-        
-        plusBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                updateCartItemQuantity(this.getAttribute('data-id'), 1);
-            });
-        });
-        
-        removeBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                removeCartItem(this.getAttribute('data-id'));
-            });
-        });
-    }
-}
-
-// Update cart item quantity
-function updateCartItemQuantity(productId, change) {
-    const item = cart.find(item => item.id == productId);
-    
-    if (item) {
-        item.quantity += change;
-        
-        if (item.quantity <= 0) {
-            removeCartItem(productId);
+    // Update floating cart appearance
+    if (floatingCart) {
+        if (totalItems > 0) {
+            floatingCart.classList.add('has-items');
         } else {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            loadCart();
+            floatingCart.classList.remove('has-items');
         }
     }
 }
 
-// Remove item from cart
-function removeCartItem(productId) {
-    cart = cart.filter(item => item.id != productId);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    loadCart();
+// Show quick view modal
+function showQuickView(product) {
+    const modal = document.getElementById('quick-view-modal');
+    if (!modal) return;
     
-    showNotification('Item removed from cart');
-}
-
-// Checkout via WhatsApp
-function checkoutViaWhatsApp() {
-    if (cart.length === 0) {
-        alert('Your cart is empty. Add some items before checking out.');
-        return;
-    }
+    modal.innerHTML = `
+        <div class="modal-content">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="quick-view-content">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h2>${product.name}</h2>
+                    <div class="product-price">
+                        ${product.originalPrice && product.originalPrice > product.price ? 
+                            `<span class="original-price">Ksh ${product.originalPrice.toLocaleString()}</span>` : ''}
+                        <span class="current-price">Ksh ${product.price.toLocaleString()}</span>
+                    </div>
+                    <p class="product-description">${product.description}</p>
+                    
+                    <div class="product-features">
+                        <h4>Features</h4>
+                        <ul>
+                            ${product.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Color:</label>
+                            <div class="color-options">
+                                ${product.colors.map(color => 
+                                    `<button class="color-option" style="background-color: ${getColorValue(color)}" data-color="${color}"></button>`
+                                ).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Size:</label>
+                            <div class="size-options">
+                                ${product.sizes.map(size => 
+                                    `<button class="size-option" data-size="${size}">${size}</button>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn btn-primary add-to-cart-large" data-product="${product.id}">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart - Ksh ${product.price.toLocaleString()}
+                        </button>
+                        <button class="btn btn-secondary buy-now-whatsapp" data-product="${product.id}">
+                            <i class="fab fa-whatsapp"></i> Buy Now on WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     
-    let message = "Hi BagsByLove, I'd like to purchase the following items:%0A%0A";
+    // Add event listeners
+    const closeBtn = modal.querySelector('.close-modal');
+    closeBtn.addEventListener('click', () => closeModal(modal));
     
-    cart.forEach(item => {
-        message += `- ${item.name} (Qty: ${item.quantity}) - Ksh ${item.price * item.quantity}%0A`;
+    const addToCartBtn = modal.querySelector('.add-to-cart-large');
+    addToCartBtn.addEventListener('click', () => {
+        addToCart(product);
+        closeModal(modal);
     });
     
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    message += `%0ATotal: Ksh ${total}%0A%0A`;
-    message += "Please confirm availability and provide payment details.";
+    const whatsappBtn = modal.querySelector('.buy-now-whatsapp');
+    whatsappBtn.addEventListener('click', () => {
+        checkoutSingleProduct(product);
+        closeModal(modal);
+    });
     
-    // Create WhatsApp URL
-    const whatsappUrl = `https://wa.me/254711642342?text=${message}`;
+    // Show modal
+    modal.classList.add('active');
+}
+
+// Checkout single product via WhatsApp
+function checkoutSingleProduct(product) {
+    const message = `Hi Bags By Eve! I'm interested in purchasing the ${product.name}. \n\nProduct: ${product.name}\nPrice: Ksh ${product.price.toLocaleString()}\nImage: ${product.image}\n\nPlease provide more details and payment information.`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/254711642342?text=${encodedMessage}`;
     
-    // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank');
 }
 
-// Load testimonials
-function loadTestimonials() {
-    const testimonialTrack = document.querySelector('.testimonial-track');
-    if (!testimonialTrack) return;
-    
-    testimonialTrack.innerHTML = '';
-    
-    testimonials.forEach(testimonial => {
-        const testimonialEl = document.createElement('div');
-        testimonialEl.className = 'testimonial';
-        testimonialEl.innerHTML = `
-            <div class="testimonial-content">
-                <div class="testimonial-text">"${testimonial.text}"</div>
-                <div class="testimonial-author">
-                    <div class="author-name">${testimonial.name}</div>
-                    <div class="author-location">${testimonial.location}</div>
-                </div>
-                <div class="testimonial-rating">
-                    ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}
-                </div>
-            </div>
-        `;
-        
-        testimonialTrack.appendChild(testimonialEl);
-    });
-    
-    // Set up testimonial slider
-    setupTestimonialSlider();
-}
-
-// Set up testimonial slider
-function setupTestimonialSlider() {
-    const dots = document.querySelectorAll('.testimonial-dot');
-    const track = document.querySelector('.testimonial-track');
-    
-    if (!dots.length || !track) return;
-    
-    dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            const slideIndex = parseInt(this.getAttribute('data-slide'));
-            
-            // Update active dot
-            dots.forEach(d => d.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Move track
-            track.style.transform = `translateX(-${slideIndex * 100}%)`;
-        });
-    });
-    
-    // Auto-advance slides every 5 seconds
-    setInterval(() => {
-        const activeDot = document.querySelector('.testimonial-dot.active');
-        let nextIndex = parseInt(activeDot.getAttribute('data-slide')) + 1;
-        
-        if (nextIndex >= dots.length) {
-            nextIndex = 0;
-        }
-        
-        dots[nextIndex].click();
-    }, 5000);
-}
-
 // Show notification
-function showNotification(message) {
+function showNotification(message, type = 'info') {
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = 'notification';
+    notification.className = `notification notification-${type}`;
     notification.innerHTML = `
         <div class="notification-content">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
             <span>${message}</span>
         </div>
     `;
@@ -1170,28 +835,157 @@ function showNotification(message) {
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
         }, 300);
     }, 3000);
 }
 
-// Hero image animation
-function animateHeroImages() {
-    const heroImages = document.querySelector('.hero-images');
-    if (!heroImages) return;
+// Initialize particles for hero section
+function initializeParticles() {
+    const container = document.getElementById('hero-particles');
+    if (!container) return;
     
-    // Clone first few images and append to end for seamless loop
-    const images = heroImages.querySelectorAll('.hero-image-item');
-    for (let i = 0; i < 3; i++) {
-        const clone = images[i].cloneNode(true);
-        heroImages.appendChild(clone);
+    // Simple particle system
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.cssText = `
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation: float ${5 + Math.random() * 10}s linear infinite;
+        `;
+        container.appendChild(particle);
     }
     
-    // Set animation
-    heroImages.style.animation = 'scrollHero 30s linear infinite';
+    // Add CSS for particle animation
+    if (!document.querySelector('#particle-styles')) {
+        const style = document.createElement('style');
+        style.id = 'particle-styles';
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(0) translateX(0); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(-100vh) translateX(${Math.random() > 0.5 ? '-' : ''}100px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 }
 
-// Initialize hero animation
-animateHeroImages();
+// Initialize scroll animations
+function initializeScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+}
 
-console.log('Bags By Love website enhanced with language switching and dark mode!');
+// Show sale popup
+function showSalePopup() {
+    if (salePopup) {
+        salePopup.classList.add('active');
+    }
+}
+
+// Close sale popup
+function closeSalePopup() {
+    if (salePopup) {
+        salePopup.classList.remove('active');
+    }
+}
+
+// Close modal
+function closeModal(modal) {
+    modal.classList.remove('active');
+}
+
+// Close all modals
+function closeAllModals() {
+    document.querySelectorAll('.modal.active').forEach(modal => {
+        modal.classList.remove('active');
+    });
+}
+
+// Handle newsletter submission
+function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const email = e.target.querySelector('input[type="email"]').value;
+    
+    // Simulate API call
+    showNotification('Thank you for subscribing to our newsletter!', 'success');
+    e.target.reset();
+}
+
+// Handle contact form submission
+function handleContactSubmit(e) {
+    e.preventDefault();
+    showNotification('Thank you for your message! We will get back to you soon.', 'success');
+    e.target.reset();
+}
+
+// Utility functions
+function getFeaturedProducts() {
+    const featured = [];
+    Object.values(products).forEach(category => {
+        category.forEach(product => {
+            if (product.featured) {
+                featured.push(product);
+            }
+        });
+    });
+    return featured;
+}
+
+function getAllProducts() {
+    const allProducts = [];
+    Object.values(products).forEach(category => {
+        allProducts.push(...category);
+    });
+    return allProducts;
+}
+
+function getColorValue(color) {
+    const colorMap = {
+        'Brown': '#8B4513',
+        'Black': '#000000',
+        'Tan': '#D2B48C',
+        'Navy': '#000080',
+        'Beige': '#F5F5DC',
+        'Olive': '#808000',
+        'Burgundy': '#800020',
+        'Gold': '#FFD700',
+        'Silver': '#C0C0C0',
+        'Camel': '#C19A6B',
+        'Red': '#FF0000',
+        'Pink': '#FFC0CB',
+        'White': '#FFFFFF'
+    };
+    return colorMap[color] || '#CCCCCC';
+}
+
+// Initialize carousel (placeholder for future enhancement)
+function initializeCarousel() {
+    // This would be implemented with a proper carousel library
+    // For now, we're using CSS grid for responsiveness
+}
+
+console.log('Bags By Eve website enhanced with modern design and functionality!');
