@@ -10,59 +10,472 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    <main>
-        
-        <section id="home-page" class="page-content">
-            <div class="hero">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#home-page" class="logo" onclick="loadPage('home-page')">BAGS BY EVE</a>
+            <nav>
+                <a href="#home-page" class="nav-link active" onclick="loadPage('home-page')">Home</a>
+                <a href="#collections-page" class="nav-link" onclick="loadPage('collections')">Collections</a>
+                <a href="#about-page" class="nav-link" onclick="loadPage('about')">About</a>
+                <a href="#contact-page" class="nav-link" onclick="loadPage('contact')">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="header-icon search-icon">
+                    <i class="fas fa-search"></i>
                 </div>
-            
+                <div class="header-icon user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="header-icon cart-icon" onclick="loadPage('cart-page')">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home-page" class="page-content">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">ELEVATE YOUR STYLE</h1>
+                        <p class="hero-subtitle">Discover our collection of premium handbags crafted for the modern woman</p>
+                        <div class="hero-actions">
+                            <a href="#collections-page" class="btn btn-primary" onclick="loadPage('collections')">Shop Now</a>
+                            <a href="#collections-page" class="btn btn-secondary" onclick="loadPage('collections')">New Arrivals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <div class="container">
+                    <h2 class="section-title">Why Choose Bags By Eve</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-gem"></i>
+                            <h3>Premium Quality</h3>
+                            <p>Handcrafted with the finest materials and attention to detail</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h3>Free Shipping</h3>
+                            <p>Free delivery on all orders over Ksh 5,000</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-undo-alt"></i>
+                            <h3>Easy Returns</h3>
+                            <p>30-day hassle-free return policy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <div class="container">
+                <h2 class="section-title">Featured Bags</h2>
+                <div class="product-grid-container" id="featured-products">
+                    <!-- Featured products will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Shop By Material -->
             <div class="container material-section">
-                <h2 class="section-title" data-key="shopByMaterial">Shop By Material</h2>
+                <h2 class="section-title">Shop By Material</h2>
                 <div class="material-grid">
-                    <div class="material-card" onclick="loadPage('collections')">
+                    <div class="material-card" onclick="loadPage('collections', 'leather')">
                         <img src="https://images.unsplash.com/photo-1596707328511-2d7c04100c4c?q=80&w=600&h=400&fit=crop" alt="Genuine Leather Bags">
                         <div class="material-overlay">
-                            <h3 data-key="leather">Genuine Leather</h3>
+                            <h3>Genuine Leather</h3>
                             <span>Shop Now &rarr;</span>
                         </div>
                     </div>
-                    <div class="material-card" onclick="loadPage('collections')">
+                    <div class="material-card" onclick="loadPage('collections', 'canvas')">
                         <img src="https://images.unsplash.com/photo-1547466184-21952a13b632?q=80&w=600&h=400&fit=crop" alt="Durable Canvas Bags">
                         <div class="material-overlay">
-                            <h3 data-key="canvas">Durable Canvas</h3>
+                            <h3>Durable Canvas</h3>
                             <span>Shop Now &rarr;</span>
                         </div>
                     </div>
-                    <div class="material-card" onclick="loadPage('collections')">
+                    <div class="material-card" onclick="loadPage('collections', 'vegan')">
                         <img src="https://images.unsplash.com/photo-1627086888636-f18b33568c0c?q=80&w=600&h=400&fit=crop" alt="Vegan Eco-Leather Bags">
                         <div class="material-overlay">
-                            <h3 data-key="vegan">Vegan Eco-Leather</h3>
+                            <h3>Vegan Eco-Leather</h3>
                             <span>Shop Now &rarr;</span>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Shop By Category -->
+            <div class="container category-section">
+                <h2 class="section-title">Shop By Category</h2>
+                <div class="category-grid">
+                    <div class="category-card" onclick="loadPage('collections', 'totes')">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&h=400&fit=crop" alt="Tote Bags">
+                        <div class="category-overlay">
+                            <h3>Tote Bags</h3>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="loadPage('collections', 'crossbody')">
+                        <img src="https://images.unsplash.com/photo-1555026901-26685f02c610?q=80&w=600&h=400&fit=crop" alt="Crossbody Bags">
+                        <div class="category-overlay">
+                            <h3>Crossbody Bags</h3>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="loadPage('collections', 'clutches')">
+                        <img src="https://images.unsplash.com/photo-1549487593-9426f491c121?q=80&w=600&h=400&fit=crop" alt="Clutch Bags">
+                        <div class="category-overlay">
+                            <h3>Clutch Bags</h3>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="loadPage('collections', 'backpacks')">
+                        <img src="https://images.unsplash.com/photo-1594953922615-566d5113d078?q=80&w=600&h=400&fit=crop" alt="Backpacks">
+                        <div class="category-overlay">
+                            <h3>Backpacks</h3>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="loadPage('collections', 'satchels')">
+                        <img src="https://images.unsplash.com/photo-1626084196160-50b865611f8e?q=80&w=600&h=400&fit=crop" alt="Satchel Bags">
+                        <div class="category-overlay">
+                            <h3>Satchel Bags</h3>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="loadPage('collections', 'mini_bags')">
+                        <img src="https://images.unsplash.com/photo-1624378772274-1a5666f4886b?q=80&w=600&h=400&fit=crop" alt="Mini Bags">
+                        <div class="category-overlay">
+                            <h3>Mini Bags</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Style Guide Section -->
             <div class="style-guide-section">
                 <div class="container style-guide-content">
-                    <h2 data-key="styleGuideTitle">The Eve Style Guide</h2>
-                    <p data-key="styleGuideSubtitle">How to carry your style, from day to night.</p>
+                    <h2>The Eve Style Guide</h2>
+                    <p>How to carry your style, from day to night.</p>
                     <a href="#" class="btn btn-secondary">Read The Guide</a>
                 </div>
             </div>
 
-            </section>
-        
-        <section id="collections-page" class="page-content" style="display: none;">
-            </section>
-
-        <section id="product-page" class="page-content" style="display: none;">
-            <div class="product-detail-container" id="product-detail-container">
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="container newsletter-content">
+                    <h2>Join Our Community</h2>
+                    <p>Subscribe to receive updates on new collections and exclusive offers</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </div>
                 </div>
+            </div>
         </section>
 
-        </main>
+        <!-- Collections Page -->
+        <section id="collections-page" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="collection-header">
+                    <h1>Our Collections</h1>
+                    <p>Discover our carefully curated selection of premium bags</p>
+                </div>
+
+                <div class="collection-layout">
+                    <!-- Filter Sidebar -->
+                    <div class="filter-sidebar">
+                        <div class="filter-group">
+                            <h4>Categories</h4>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="totes"> Tote Bags
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="crossbody"> Crossbody Bags
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="clutches"> Clutch Bags
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="backpacks"> Backpacks
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="satchels"> Satchel Bags
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="mini_bags"> Mini Bags
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="travel_bags"> Travel Bags
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Material</h4>
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="leather"> Genuine Leather
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="canvas"> Durable Canvas
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="vegan"> Vegan Eco-Leather
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <div class="price-range-inputs">
+                                <input type="number" placeholder="Min" id="price-min">
+                                <input type="number" placeholder="Max" id="price-max">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>On Sale</h4>
+                            <label class="filter-option">
+                                <input type="checkbox" name="sale" value="true"> Sale Items Only
+                            </label>
+                        </div>
+
+                        <button class="btn btn-primary" id="apply-filters">Apply Filters</button>
+                        <button class="btn btn-secondary" id="reset-filters">Reset</button>
+                    </div>
+
+                    <!-- Collection Main Content -->
+                    <div class="collection-main">
+                        <div class="sort-bar">
+                            <span id="products-count">12 products</span>
+                            <select id="sort-options">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name">Name: A to Z</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+
+                        <div class="product-grid-container" id="collection-products">
+                            <!-- Collection products will be loaded by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Page -->
+        <section id="product-page" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="pdp-grid" id="product-detail-container">
+                    <!-- Product details will be loaded by JavaScript -->
+                </div>
+
+                <!-- Related Products Section -->
+                <div class="related-products-section">
+                    <h2 class="section-title">You Might Also Love</h2>
+                    <div class="product-grid-container" id="related-products">
+                        <!-- Related products will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Page -->
+        <section id="cart-page" class="page-content" style="display: none;">
+            <div class="container">
+                <h1 class="page-header">Your Shopping Bag</h1>
+                
+                <div class="cart-layout">
+                    <div class="cart-items-list">
+                        <div id="cart-items-container">
+                            <!-- Cart items will be loaded by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="cart-summary-box">
+                        <h3>Order Summary</h3>
+                        <div id="cart-summary">
+                            <!-- Cart summary will be loaded by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about-page" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="about-header">
+                    <h1>About Bags By Eve</h1>
+                    <p>Crafting elegance for the modern woman</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&h=600&fit=crop" alt="About Bags By Eve">
+                    </div>
+                    
+                    <div class="about-text">
+                        <h2>Our Story</h2>
+                        <p>Founded in 2015, Bags By Eve emerged from a passion for combining timeless elegance with modern functionality. Our founder, Evelyn, noticed a gap in the market for high-quality, stylish bags that could seamlessly transition from day to night, from the boardroom to a dinner date.</p>
+                        
+                        <p>Each bag in our collection is thoughtfully designed with the modern woman in mind. We understand that your bag is more than just an accessory - it's a companion that carries your essentials, your dreams, and your style.</p>
+                        
+                        <h2>Our Craftsmanship</h2>
+                        <p>We partner with skilled artisans who share our commitment to quality and attention to detail. From the selection of premium materials to the final stitch, every bag undergoes rigorous quality checks to ensure it meets our high standards.</p>
+                        
+                        <h2>Sustainability</h2>
+                        <p>We're committed to responsible manufacturing practices. Our vegan leather collection uses innovative, eco-friendly materials, and we're continuously working to reduce our environmental footprint throughout our supply chain.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact-page" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="contact-header">
+                    <h1>Get In Touch</h1>
+                    <p>We'd love to hear from you</p>
+                </div>
+                
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Our Store</h3>
+                                <p>123 Fashion Street, Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+254 711 642 342</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@bagsbyeve.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Opening Hours</h3>
+                                <p>Monday - Saturday: 9AM - 8PM</p>
+                                <p>Sunday: 11AM - 6PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <h2>Send Us a Message</h2>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BAGS BY EVE</h3>
+                    <p>Crafting elegant bags for the modern woman since 2015. Discover our collection of premium handbags designed to elevate your style.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#collections-page" onclick="loadPage('collections')">All Collections</a></li>
+                        <li><a href="#collections-page" onclick="loadPage('collections', 'totes')">Tote Bags</a></li>
+                        <li><a href="#collections-page" onclick="loadPage('collections', 'crossbody')">Crossbody Bags</a></li>
+                        <li><a href="#collections-page" onclick="loadPage('collections', 'clutches')">Clutch Bags</a></li>
+                        <li><a href="#collections-page" onclick="loadPage('collections', 'backpacks')">Backpacks</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get special offers, free giveaways, and new collection launches.</p>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bags By Eve. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Cart Button -->
+    <div class="floating-cart" onclick="loadPage('cart-page')">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count-floating" id="cart-count-floating">0</span>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quick-view-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-quick-view">&times;</button>
+            <div class="modal-body" id="quick-view-content">
+                <!-- Quick view content will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-text">Product added to cart!</span>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
