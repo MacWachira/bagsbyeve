@@ -296,3 +296,172 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* styles.css - DARK PURPLE LUXURY THEME */
+
+:root {
+    /* DARK MODE PALETTE */
+    --primary: #BB86FC; /* Light Purple/Accent for buttons/links (Visible on Dark) */
+    --secondary: #6200EE; /* Deep Accent */
+    --accent: #BB86FC1A; /* Very subtle light background for cards/sections */
+    --dark: #121212; /* Very Dark Background */
+    --light: #1E1E1E; /* Secondary Dark Background/Card Base */
+    --text: #E0E0E0; /* Light text on dark background */
+    --white: #FFFFFF;
+    --sale: #CF6679; /* Soft Red for Sale */
+    --gold: #FFD700;
+    --header-bg: #2C003E; /* Dark Purple for header/footer */
+    --nav-text: var(--text);
+    
+    --glass: rgba(255, 255, 255, 0.05); /* Lighter Glass Effect */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow contrast */
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --pdp-border: #333;
+    --pdp-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation Adjustments for Dark Theme */
+header {
+    background-color: var(--header-bg); /* Dark Purple BG for Header */
+    box-shadow: var(--shadow);
+}
+
+.nav-link, .header-icon {
+    color: var(--nav-text);
+}
+
+.nav-link:hover, .header-icon:hover {
+    color: var(--primary);
+}
+
+/* Button Adjustments for Dark Theme */
+.btn-primary {
+    background: var(--primary);
+    color: var(--dark); /* Dark text on light button */
+    box-shadow: 0 4px 10px rgba(187, 134, 252, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+/* Product Card Adjustments */
+.product-card {
+    background-color: var(--light); /* Slightly lighter background for cards */
+    color: var(--text);
+    box-shadow: var(--pdp-shadow);
+}
+
+.product-name {
+    color: var(--text);
+}
+
+.product-category {
+    color: #A0A0A0;
+}
+
+/* Section Titles */
+.section-title {
+    color: var(--white);
+}
+
+/* Shop By Material Section */
+.material-card {
+    background-color: var(--light);
+    box-shadow: var(--pdp-shadow);
+}
+
+/* Style Guide Section */
+.style-guide-section {
+    background-color: var(--light);
+}
+
+.style-guide-content h2 {
+    color: var(--text);
+}
+
+.style-guide-content p {
+    color: #A0A0A0;
+}
+
+/* Footer Adjustments for Dark Theme */
+footer {
+    background-color: var(--header-bg);
+    color: var(--text);
+}
+
+.footer-column h3 {
+    color: var(--primary);
+}
+
+.footer-links a {
+    color: var(--text);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-links i {
+    color: var(--primary);
+}
+
+/* PDP Details Adjustments */
+.pdp-details {
+    color: var(--text);
+}
+
+.pdp-name {
+    color: var(--white);
+}
+
+.pdp-category {
+    color: var(--primary);
+}
+
+.pdp-price {
+    color: var(--primary);
+}
+
+.pdp-description-box h3, .pdp-specifications h3 {
+    color: var(--white);
+}
+
+.pdp-specifications {
+    background-color: var(--light);
+    border: 1px solid var(--pdp-border);
+}
+
+.spec-label {
+    color: var(--text);
+}
+
+.feature-list li i {
+    color: var(--primary);
+}
+
+/* Retaining the rest of the previous PDP and collection CSS */
