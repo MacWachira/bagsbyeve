@@ -1,4 +1,140 @@
-// script.js
+// script.js - Enhanced for Bags By Love Website
+
+// Language translations
+const translations = {
+    en: {
+        // Header & Navigation
+        home: "Home",
+        collections: "Collections",
+        newArrivals: "New Arrivals",
+        bestsellers: "Bestsellers",
+        sale: "Sale",
+        about: "About",
+        contact: "Contact",
+        cart: "Cart",
+        search: "Search",
+        account: "Account",
+        
+        // Hero Section
+        heroTitle: "Elegance Redefined",
+        heroSubtitle: "Discover our exclusive collection of handcrafted bags designed for the modern woman",
+        shopWhatsApp: "Shop on WhatsApp",
+        viewCart: "View Cart",
+        
+        // Sections
+        specialSale: "Special Sale",
+        limitedTime: "Limited time offers on selected items",
+        featuredCollections: "Featured Collections",
+        popularDesigns: "Our most popular and loved designs",
+        whatCustomersSay: "What Our Customers Say",
+        realReviews: "Real reviews from real customers",
+        joinNewsletter: "Join Our Newsletter",
+        newsletterSubtitle: "Subscribe to receive updates on new collections, exclusive offers, and styling tips",
+        
+        // Features
+        premiumQuality: "Premium Quality",
+        premiumDesc: "Each bag is crafted with the finest materials and attention to detail",
+        freeShipping: "Free Shipping",
+        shippingDesc: "Enjoy complimentary shipping on all orders over Ksh 3,000",
+        easyReturns: "Easy Returns",
+        returnsDesc: "Not satisfied? Return within 30 days for a full refund",
+        ethicallyMade: "Ethically Made",
+        ethicalDesc: "Our products are ethically sourced and manufactured",
+        
+        // Buttons & Actions
+        addToCart: "Add to Cart",
+        quickView: "Quick View",
+        shopNow: "Shop Now",
+        explore: "Explore",
+        subscribe: "Subscribe",
+        sendMessage: "Send Message",
+        continueShopping: "Continue Shopping",
+        checkout: "Checkout",
+        
+        // Product Categories
+        totes: "Totes",
+        crossbody: "Crossbody Bags",
+        clutches: "Clutches",
+        backpacks: "Backpacks",
+        
+        // Footer
+        madeForModernWoman: "MADE FOR THE MODERN WOMAN",
+        footerDescription: "Creating elegant, functional bags for the contemporary woman who values style and substance",
+        shop: "Shop",
+        allCollections: "All Collections",
+        support: "Support",
+        shippingInfo: "Shipping Info",
+        returnsExchanges: "Returns & Exchanges",
+        faq: "FAQ",
+        careInstructions: "Care Instructions"
+    },
+    sw: {
+        // Header & Navigation
+        home: "Nyumbani",
+        collections: "Mkusanyiko",
+        newArrivals: "Vipya",
+        bestsellers: "Vinavyouzwa Zaidi",
+        sale: "Punguzo",
+        about: "Kuhusu",
+        contact: "Wasiliana",
+        cart: "Mkokoteni",
+        search: "Tafuta",
+        account: "Akaunti",
+        
+        // Hero Section
+        heroTitle: "Urembo Ulioboreshwa",
+        heroSubtitle: "Gundua mkusanyiko wetu wa kipekee wa mikoba iliyotengenezwa kwa mikono iliyoundwa kwa mwanamke wa kisasa",
+        shopWhatsApp: "Nunua kupitia WhatsApp",
+        viewCart: "Angalia Mkokoteni",
+        
+        // Sections
+        specialSale: "Punguzo Maalum",
+        limitedTime: "Ofa za muda mfupi kwenye vitu vilivyochaguliwa",
+        featuredCollections: "Mikusanyiko Maarufu",
+        popularDesigns: "Miundo yetu maarufu na inayopendwa zaidi",
+        whatCustomersSay: "Wateja Wetu Wasemaje",
+        realReviews: "Ukaguzi halisi kutoka kwa wateja halisi",
+        joinNewsletter: "Jiunge na Jarida Letu",
+        newsletterSubtitle: "Jiandikishe kupokea visasisho kuhusu mkusanyiko mpya, ofa za kipekee, na vidokezo vya mitindo",
+        
+        // Features
+        premiumQuality: "Ubora wa Hali ya Juu",
+        premiumDesc: "Kila mfuko hutengenezwa kwa nyenzo bora zaidi na umakini wa kina",
+        freeShipping: "Usafirishaji Bure",
+        shippingDesc: "Furahia usafirishaji wa bure kwa maagizo yote juu ya Ksh 3,000",
+        easyReturns: "Kurejeshea Rahisi",
+        returnsDesc: "Hauradhishwa? Rudisha ndani ya siku 30 kwa fidia kamili",
+        ethicallyMade: "Imetengenezwa Kimaadili",
+        ethicalDesc: "Bidhaa zetu zinapatikana kimaadili na kutengenezwa",
+        
+        // Buttons & Actions
+        addToCart: "Ongeza kwenye Mkokoteni",
+        quickView: "Angalia Haraka",
+        shopNow: "Nunua Sasa",
+        explore: "Chunguza",
+        subscribe: "Jiandikishe",
+        sendMessage: "Tuma Ujumbe",
+        continueShopping: "Endelea Kununua",
+        checkout: "Maliza",
+        
+        // Product Categories
+        totes: "Mikoba",
+        crossbody: "Mikoba ya Mabega",
+        clutches: "Mikoba ya Mkono",
+        backpacks: "Mikoba ya Mgongoni",
+        
+        // Footer
+        madeForModernWoman: "IMETENGENEZWA KWA MWANAMKE WA KISASA",
+        footerDescription: "Kuunda mikoba ya kifahari, inayofanya kazi kwa mwanamke wa kisasa anayethamini mtindo na dhamira",
+        shop: "Nunua",
+        allCollections: "Mikusanyiko Yote",
+        support: "Msaada",
+        shippingInfo: "Maelezo ya Usafirishaji",
+        returnsExchanges: "Kurejeshea na Kubadilishana",
+        faq: "Maswali Yanayoulizwa Mara Kwa Mara",
+        careInstructions: "Maagizo ya Utunzaji"
+    }
+};
 
 // Product Data
 const products = {
@@ -46,22 +182,11 @@ const products = {
             category: "totes",
             featured: false,
             sale: true
-        },
-        {
-            id: 5,
-            name: "Oversized Beach Tote",
-            price: 3500,
-            originalPrice: 4200,
-            image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Roomy tote perfect for beach days or shopping trips.",
-            category: "totes",
-            featured: false,
-            sale: true
         }
     ],
     "crossbody": [
         {
-            id: 6,
+            id: 5,
             name: "Leather Crossbody Bag",
             price: 3200,
             originalPrice: 3800,
@@ -72,7 +197,7 @@ const products = {
             sale: false
         },
         {
-            id: 7,
+            id: 6,
             name: "Vintage Inspired Crossbody",
             price: 2800,
             originalPrice: 3500,
@@ -83,7 +208,7 @@ const products = {
             sale: true
         },
         {
-            id: 8,
+            id: 7,
             name: "Quilted Crossbody Bag",
             price: 3800,
             originalPrice: 4500,
@@ -94,7 +219,7 @@ const products = {
             sale: false
         },
         {
-            id: 9,
+            id: 8,
             name: "Mini Crossbody Purse",
             price: 2500,
             originalPrice: 3000,
@@ -103,22 +228,11 @@ const products = {
             category: "crossbody",
             featured: false,
             sale: true
-        },
-        {
-            id: 10,
-            name: "Convertible Crossbody Tote",
-            price: 4800,
-            originalPrice: 5500,
-            image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Versatile bag that converts from crossbody to tote.",
-            category: "crossbody",
-            featured: false,
-            sale: false
         }
     ],
     "clutches": [
         {
-            id: 11,
+            id: 9,
             name: "Evening Sparkle Clutch",
             price: 2800,
             originalPrice: 3500,
@@ -129,7 +243,7 @@ const products = {
             sale: false
         },
         {
-            id: 12,
+            id: 10,
             name: "Leather Wristlet Clutch",
             price: 2200,
             originalPrice: 2800,
@@ -140,7 +254,7 @@ const products = {
             sale: true
         },
         {
-            id: 13,
+            id: 11,
             name: "Envelope Clutch",
             price: 3200,
             originalPrice: 3800,
@@ -151,7 +265,7 @@ const products = {
             sale: false
         },
         {
-            id: 14,
+            id: 12,
             name: "Beaded Evening Clutch",
             price: 3500,
             originalPrice: 4200,
@@ -160,22 +274,11 @@ const products = {
             category: "clutches",
             featured: false,
             sale: true
-        },
-        {
-            id: 15,
-            name: "Convertible Clutch with Chain",
-            price: 3800,
-            originalPrice: 4500,
-            image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Versatile clutch that can be carried or worn crossbody.",
-            category: "clutches",
-            featured: false,
-            sale: false
         }
     ],
     "backpacks": [
         {
-            id: 16,
+            id: 13,
             name: "Leather Laptop Backpack",
             price: 5800,
             originalPrice: 6500,
@@ -186,7 +289,7 @@ const products = {
             sale: false
         },
         {
-            id: 17,
+            id: 14,
             name: "Mini Leather Backpack",
             price: 4200,
             originalPrice: 5000,
@@ -197,7 +300,7 @@ const products = {
             sale: true
         },
         {
-            id: 18,
+            id: 15,
             name: "Canvas Rucksack",
             price: 3500,
             originalPrice: 4200,
@@ -208,7 +311,7 @@ const products = {
             sale: false
         },
         {
-            id: 19,
+            id: 16,
             name: "Convertible Backpack Purse",
             price: 4800,
             originalPrice: 5500,
@@ -217,17 +320,6 @@ const products = {
             category: "backpacks",
             featured: false,
             sale: true
-        },
-        {
-            id: 20,
-            name: "Vintage Leather Backpack",
-            price: 5200,
-            originalPrice: 6000,
-            image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Aged leather backpack with rustic charm.",
-            category: "backpacks",
-            featured: false,
-            sale: false
         }
     ]
 };
@@ -285,6 +377,10 @@ const testimonials = [
 // Cart functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// Language and Theme State
+let currentLanguage = localStorage.getItem('language') || 'en';
+let currentTheme = localStorage.getItem('theme') || 'light';
+
 // DOM Elements
 const pages = document.querySelectorAll('.page');
 const navLinks = document.querySelectorAll('.nav-links a, .footer-links a, .back-button, .logo');
@@ -299,9 +395,16 @@ const closePopup = document.getElementById('close-popup');
 const shopSaleItem = document.getElementById('shop-sale-item');
 const viewCartBtn = document.getElementById('view-cart');
 const checkoutWhatsApp = document.getElementById('checkout-whatsapp');
+const themeToggle = document.getElementById('theme-toggle');
+const languageBtn = document.getElementById('language-btn');
+const languageOptions = document.querySelectorAll('.language-option');
 
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {
+    // Set initial language and theme
+    setLanguage(currentLanguage);
+    setTheme(currentTheme);
+    
     // Show sale popup after 2 seconds
     setTimeout(() => {
         salePopup.style.display = 'flex';
@@ -364,6 +467,19 @@ function setupEventListeners() {
         checkoutViaWhatsApp();
     });
 
+    // Theme toggle
+    themeToggle.addEventListener('click', function() {
+        toggleTheme();
+    });
+
+    // Language switcher
+    languageOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+
     // Newsletter form
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
@@ -384,6 +500,64 @@ function setupEventListeners() {
             this.reset();
         });
     }
+}
+
+// Set language
+function setLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('language', lang);
+    
+    // Update language button text
+    const langBtnText = languageBtn.querySelector('span');
+    langBtnText.textContent = lang === 'en' ? 'EN' : 'SW';
+    
+    // Update all translatable elements
+    updateTextContent();
+}
+
+// Update all text content based on current language
+function updateTextContent() {
+    const t = translations[currentLanguage];
+    
+    // Update navigation
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (t[key]) {
+            element.textContent = t[key];
+        }
+    });
+    
+    // Update buttons and other elements
+    const elementsToTranslate = {
+        '#view-cart': 'viewCart',
+        '.btn-whatsapp': 'shopWhatsApp',
+        '.newsletter-form button': 'subscribe',
+        '#checkout-whatsapp': 'checkout',
+        '.cart-actions .btn-outline': 'continueShopping'
+    };
+    
+    for (const selector in elementsToTranslate) {
+        const element = document.querySelector(selector);
+        if (element && t[elementsToTranslate[selector]]) {
+            element.textContent = t[elementsToTranslate[selector]];
+        }
+    }
+}
+
+// Toggle theme
+function toggleTheme() {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+    setTheme(currentTheme);
+}
+
+// Set theme
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Update theme toggle icon
+    const icon = themeToggle.querySelector('i');
+    icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
 }
 
 // Show specific page and hide others
@@ -496,7 +670,7 @@ function loadCategories() {
                 <div class="category-overlay">
                     <h3>${category.name}</h3>
                     <p>${category.description}</p>
-                    <a href="#" class="btn btn-outline" data-category="${category.id}">Explore</a>
+                    <a href="#" class="btn btn-outline" data-category="${category.id}">${translations[currentLanguage].explore}</a>
                 </div>
             </div>
         `;
@@ -522,7 +696,7 @@ function showCategoryProducts(categoryId) {
     categoryPage.innerHTML = `
         <div class="container page-content">
             <a href="#" class="back-button" data-page="collections">
-                <i class="fas fa-arrow-left"></i> Back to Collections
+                <i class="fas fa-arrow-left"></i> ${translations[currentLanguage].backToCollections}
             </a>
             <div class="section-title">
                 <h2>${categories.find(c => c.id === categoryId).name}</h2>
@@ -639,8 +813,8 @@ function createProductCard(product) {
             <img src="${product.image}" alt="${product.name}">
             ${product.sale ? `<div class="sale-badge">${discount}% OFF</div>` : ''}
             <div class="product-overlay">
-                <button class="btn btn-primary quick-view" data-product="${product.id}">Quick View</button>
-                <button class="btn btn-outline add-to-cart" data-product="${product.id}">Add to Cart</button>
+                <button class="btn btn-primary quick-view" data-product="${product.id}">${translations[currentLanguage].quickView}</button>
+                <button class="btn btn-outline add-to-cart" data-product="${product.id}">${translations[currentLanguage].addToCart}</button>
             </div>
         </div>
         <div class="product-info">
@@ -689,7 +863,7 @@ function showQuickView(product) {
                         <span class="current-price">Ksh ${product.price}</span>
                     </div>
                     <div class="product-actions">
-                        <button class="btn btn-primary add-to-cart-modal" data-product="${product.id}">Add to Cart</button>
+                        <button class="btn btn-primary add-to-cart-modal" data-product="${product.id}">${translations[currentLanguage].addToCart}</button>
                         <button class="btn btn-outline">Save for Later</button>
                     </div>
                     <div class="product-features">
@@ -779,7 +953,7 @@ function loadCart() {
                 <i class="fas fa-shopping-bag"></i>
                 <h3>Your cart is empty</h3>
                 <p>Add some beautiful bags to your cart</p>
-                <a href="#" class="btn btn-primary" data-page="collections">Start Shopping</a>
+                <a href="#" class="btn btn-primary" data-page="collections">${translations[currentLanguage].continueShopping}</a>
             </div>
         `;
         
@@ -1019,3 +1193,5 @@ function animateHeroImages() {
 
 // Initialize hero animation
 animateHeroImages();
+
+console.log('Bags By Love website enhanced with language switching and dark mode!');
